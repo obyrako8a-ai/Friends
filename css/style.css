@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'AlumniSans';
+  src: url('../fonts/AlumniSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* РОТ */
+.mouth {
+  width: 50vw;
+  height: 28vw;
+  background-color: #F7DE1C;
+  border: 5px solid black;
+  flex-shrink: 0;
+  background-image: url('../images/lips.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: background-image 0.3s ease;
+}
+
+.mouth:hover {
+  background-image: url('../images/language.svg');
+}
