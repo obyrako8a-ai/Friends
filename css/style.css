@@ -26,9 +26,23 @@ body {
 
 .rectangle {
     width: 100vw;
-    height: 52vh;
+    height: 100vh;
     background-color: #F7DE1C;
     border: 5px solid #000000;
+}
+/* ЗАГОЛОВОК */
+.title {
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'AlumniSans', sans-serif;
+    font-size: 250px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
 }
 .circle {
     position: absolute;
