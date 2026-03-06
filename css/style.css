@@ -15,7 +15,7 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-/* ВЕРХНИЙ БОКС */
+/* Верхний бокс */
 .box {
     width: 100vw;
     height: 100vh;
@@ -30,7 +30,7 @@ body {
     background-color: #F7DE1C;
     border: 5px solid #000000;
 }
-/* ЗАГОЛОВОК */
+
 .title {
     position: absolute;
     top: 2vh;
@@ -44,38 +44,67 @@ body {
     white-space: nowrap;
     z-index: 10;
 }
-.circle {
+
+/* Левый глаз */
+.circle-left {
     position: absolute;
-    top: 10vh;
-    left: 20%;
+    top: 15vh;
+    left: 15%;
     transform: translateX(-50%);
     z-index: 1;
 }
 
-.eye {
+.eye-left {
     position: absolute;
     top: 20vh;
-    left: 20%;
+    left: 15%;
     transform: translateX(-50%);
     z-index: 2;
+    transition: transform 0.05s ease-out;
 }
 
-.eyelid {
+.eyelid-left {
     position: absolute;
-    top: 10vh;
-    left: 20%;
+    top: 15vh;
+    left: 15%;
     transform: translateX(-50%);
     z-index: 3;
 }
 
-/* РОТ */
+/* Правый глаз */
+.circle-right {
+    position: absolute;
+    top: 15vh;
+    right: 15%;
+    transform: translateX(50%);
+    z-index: 1;
+}
+
+.eye-right {
+    position: absolute;
+    top: 20vh;
+    right: 15%;
+    transform: translateX(50%);
+    z-index: 2;
+    transition: transform 0.05s ease-out;
+}
+
+.eyelid-right {
+    position: absolute;
+    top: 15vh;
+    right: 15%;
+    transform: translateX(50%);
+    z-index: 3;
+}
+
+/* РОТ - между глазами по центру */
 .mouth {
     position: absolute;
-    top: 16vh;
+    top: 20vh;
     left: 50%;
     transform: translateX(-50%);
-    width: 35vw;
-    height: 30vh;
+    width: 45vw;
+    height: 40vh;
     z-index: 4;
 }
 
@@ -88,6 +117,7 @@ body {
     object-fit: contain;
     opacity: 0;
 }
+
 
 /* Анимация для каждого состояния рта */
 .mouth-closed {
