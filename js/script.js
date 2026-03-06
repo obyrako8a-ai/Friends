@@ -1,3 +1,25 @@
+// ============================================
+// БЕГУЩАЯ СТРОКА - УПРАВЛЕНИЕ
+// ============================================
+
+const marqueeContent = document.getElementById('marqueeContent');
+
+// Функция для управления скоростью
+function setMarqueeSpeed(speedSeconds) {
+    marqueeContent.style.animationDuration = `${speedSeconds}s`;
+}
+
+// Функция для изменения направления
+function reverseMarquee() {
+    if (marqueeContent.style.animationDirection === 'reverse') {
+        marqueeContent.style.animationDirection = 'normal';
+    } else {
+        marqueeContent.style.animationDirection = 'reverse';
+    }
+}
+// ============================================
+// Слежка глаз за курсором
+// ============================================
 // Находим оба зрачка
 const eyeLeft = document.querySelector('.eye-left');
 const eyeRight = document.querySelector('.eye-right');

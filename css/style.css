@@ -5,7 +5,7 @@
 }
 @font-face {
   font-family: 'AlumniSans';
-  src: url('../fonts/AlumniSans-Medium.ttf') format('truetype');
+  src: url('../fonts/Alumni Sans/AlumniSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -29,24 +29,72 @@ body {
     height: 100vh;
     background-color: #F7DE1C;
     border: 5px solid #000000;
+    position: relative;
+    overflow: hidden;
+}
+/* ЛОГОТИП - левый верхний угол */
+.logo-bg {
+    position: absolute;
+    display: flex;
+    top: 15vh;
+    left: 0vw;
+    width: 30vw;  /* подстрой под размер лого */
+    height: 15vh;
+    background-color: #FF0000;  /* красный */
+    z-index: 20;  /* выше текста, ниже лого */
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    top: 15vh;
+    left: 1vw;
+    width: 30vw;  /* подстрой под размер лого */
+    height: 15vh;
+    object-fit: contain;
+    z-index: 21;  /* самый верхний слой */
+}
+
+/* БЕГУЩАЯ СТРОКА ВНУТРИ ПРЯМОУГОЛЬНИКА */
+.marquee-container {
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.marquee-content {
+    display: flex;
+    width: fit-content;
+    animation: scrollLeft 10s linear infinite;
 }
 
 .title {
-    position: absolute;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
     font-family: 'AlumniSans', sans-serif;
     font-size: 250px;
     font-weight: 500;
     color: #000000;
     text-align: center;
     white-space: nowrap;
-    z-index: 10;
+    padding: 0 5vw;
+    flex-shrink: 0;
+}
+
+/* Анимация бегущей строки */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Левый глаз */
 .circle-left {
+    display: flex;
     position: absolute;
     top: 15vh;
     left: 15%;
@@ -56,6 +104,7 @@ body {
 
 .eye-left {
     position: absolute;
+    display: flex;
     top: 20vh;
     left: 15%;
     transform: translateX(-50%);
@@ -65,6 +114,7 @@ body {
 
 .eyelid-left {
     position: absolute;
+    display: flex;
     top: 15vh;
     left: 15%;
     transform: translateX(-50%);
@@ -74,6 +124,7 @@ body {
 /* Правый глаз */
 .circle-right {
     position: absolute;
+    display: flex;
     top: 15vh;
     right: 15%;
     transform: translateX(50%);
@@ -82,6 +133,7 @@ body {
 
 .eye-right {
     position: absolute;
+    display: flex;
     top: 20vh;
     right: 15%;
     transform: translateX(50%);
@@ -91,6 +143,7 @@ body {
 
 .eyelid-right {
     position: absolute;
+    display: flex;
     top: 15vh;
     right: 15%;
     transform: translateX(50%);
@@ -100,6 +153,7 @@ body {
 /* РОТ - между глазами по центру */
 .mouth {
     position: absolute;
+    display: flex;
     top: 20vh;
     left: 50%;
     transform: translateX(-50%);
