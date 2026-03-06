@@ -10,11 +10,28 @@
   font-style: normal;
   font-display: swap;
 }
+/* ВЕРХНИЙ БОКС */
+.top-ui-layer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+/* ГЛАЗА */
+.top-bar {
+  width: 100vw;
+  height: 25vw;
+  background-color: #F7DE1C;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
 /* РОТ */
 .mouth {
   width: 50vw;
   height: 28vw;
-  background-color: #F7DE1C;
   border: 5px solid black;
   flex-shrink: 0;
   background-image: url('../images/lips.svg');
