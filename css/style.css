@@ -96,7 +96,7 @@ body {
 .circle-left {
     display: flex;
     position: absolute;
-    top: 15vh;
+    top: 45vh;
     left: 15%;
     transform: translateX(-50%);
     z-index: 1;
@@ -105,7 +105,7 @@ body {
 .eye-left {
     position: absolute;
     display: flex;
-    top: 20vh;
+    top: 50vh;
     left: 15%;
     transform: translateX(-50%);
     z-index: 2;
@@ -115,7 +115,7 @@ body {
 .eyelid-left {
     position: absolute;
     display: flex;
-    top: 15vh;
+    top: 45vh;
     left: 15%;
     transform: translateX(-50%);
     z-index: 3;
@@ -125,7 +125,7 @@ body {
 .circle-right {
     position: absolute;
     display: flex;
-    top: 15vh;
+    top: 45vh;
     right: 15%;
     transform: translateX(50%);
     z-index: 1;
@@ -134,7 +134,7 @@ body {
 .eye-right {
     position: absolute;
     display: flex;
-    top: 20vh;
+    top: 50vh;
     right: 15%;
     transform: translateX(50%);
     z-index: 2;
@@ -144,7 +144,7 @@ body {
 .eyelid-right {
     position: absolute;
     display: flex;
-    top: 15vh;
+    top: 45vh;
     right: 15%;
     transform: translateX(50%);
     z-index: 3;
@@ -154,7 +154,7 @@ body {
 .mouth {
     position: absolute;
     display: flex;
-    top: 20vh;
+    top: 45vh;
     left: 50%;
     transform: translateX(-50%);
     width: 45vw;
