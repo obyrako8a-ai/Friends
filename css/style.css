@@ -12,8 +12,9 @@
 }
 body {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto; 
 }
 /* Верхний бокс */
 .box {
@@ -28,8 +29,8 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #F7DE1C;
-    border: 5px solid #000000;
-    position: relative;
+    border: 10px solid #000000;
+    position: relative; 
     overflow: hidden;
 }
 /* ЛОГОТИП - левый верхний угол */
@@ -105,7 +106,7 @@ body {
 .eye-left {
     position: absolute;
     display: flex;
-    top: 50vh;
+    top: 55vh;
     left: 15%;
     transform: translateX(-50%);
     z-index: 2;
@@ -134,7 +135,7 @@ body {
 .eye-right {
     position: absolute;
     display: flex;
-    top: 50vh;
+    top: 55vh;
     right: 15%;
     transform: translateX(50%);
     z-index: 2;
@@ -194,7 +195,7 @@ body {
     animation-delay: 1.5s;
 }
 
-/* Ключевые кадры анимации — мгновенное переключение */
+
 @keyframes mouthCycle {
     0% {
         opacity: 0;
@@ -211,4 +212,166 @@ body {
     100% {
         opacity: 0;
     }
+}
+
+/* Фиолетовый бокс */
+.purple-box {
+    width: 100%;
+    min-height: 100vh;
+    border-top: none;
+    display: block;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: -16vh;
+    position: relative;
+    z-index: 10;
+}
+/* КРАСНАЯ ПЛАШКА В ФИОЛЕТОВОМ БОКСЕ */
+.logo-bg-purple {
+    position: absolute;
+    top: 20vh;
+    left: 0vw;
+    width: 30vw;
+    height: 23vh;
+    background-color: #7A59A4;
+    z-index: 30;
+
+}
+/* ТЕКСТ ВМЕСТО ЛОГО */
+.purple-text {
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    font-family: 'AlumniSans', sans-serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.2;
+    z-index: 31;
+    white-space: nowrap;
+}
+/* БЕГУЩАЯ СТРОКА В ФИОЛЕТОВОМ БОКСЕ */
+.marquee-container-purple {
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 20;  /* Выше изображения */
+    pointer-events: none;  /* Чтобы не мешала кликам */
+}
+
+.marquee-content-purple {
+    display: flex;
+    width: fit-content;
+    animation: scrollLeft 10s linear infinite;
+}
+
+.title-purple {
+    font-family: 'AlumniSans', sans-serif;
+    font-size: 200px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 5vw;
+    flex-shrink: 0;
+}
+
+/* Анимация бегущей строки (та же самая) */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.purple-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+}
+/* Зеленый бокс */
+.green-box {
+    width: 100%;
+    min-height: 100vh;
+    border-top: none;
+    display: flex;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: -32vh;
+    position: relative;
+    z-index: 20;
+}
+.green-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+}
+/* Голубой бокс */
+.blue-box {
+    width: 100%;
+    min-height: 100vh;
+    border-top: none;
+    display: flex;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: -48vh;
+    position: relative;
+    z-index: 30;
+}
+.blue-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+}
+/* Розовый бокс */
+.pink-box {
+    width: 100%;
+    min-height: 100vh;
+    border-top: none;
+    display: flex;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: -64vh;
+    position: relative;
+    z-index: 40;
+}
+.pink-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+}
+/* Синий бокс */
+.dark-blue-box {
+    width: 100%;
+    min-height: 100vh;
+    border-top: none;
+    display: flex;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: -80vh;
+    position: relative;
+    z-index: 50;
+}
+.dark-blue-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
 }

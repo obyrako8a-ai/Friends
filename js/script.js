@@ -17,6 +17,14 @@ function reverseMarquee() {
         marqueeContent.style.animationDirection = 'reverse';
     }
 }
+// Бегущая строка у фиолетового бокса
+const marqueeContentPurple = document.getElementById('marqueeContentPurple');
+
+// Дублирование контента для бесшовной прокрутки (если нужно)
+if (marqueeContentPurple) {
+    const content = marqueeContentPurple.innerHTML;
+    marqueeContentPurple.innerHTML = content + content;
+}
 // ============================================
 // Слежка глаз за курсором
 // ============================================
