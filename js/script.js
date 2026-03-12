@@ -62,3 +62,25 @@ function moveEye(eye, cursorX, cursorY, side) {
     // Применяем трансформацию
     eye.style.transform = `${baseTransform} translate(${moveX}px, ${moveY}px)`;
 }
+
+// ============================================
+// СМЕНА КУЛАКОВ НА РУКИ ПРИ КЛИКЕ
+// ============================================
+
+const fists = document.querySelectorAll('.fist');
+
+fists.forEach(fist => {
+    fist.addEventListener('click', function() {
+        // Получаем путь к изображению руки из data-атрибута
+        const handSrc = this.getAttribute('data-hand');
+        
+        // Меняем src на изображение руки
+        this.src = handSrc;
+        
+        // Добавляем класс, чтобы убрать анимацию
+        this.classList.add('hand-active');
+        
+        // Опционально: меняем alt
+        this.alt = this.alt.replace('Fist', 'Hand');
+    });
+});
