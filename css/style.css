@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto; 
 }
-/* Верхний бокс */
+/* Желтый бокс */
 .box {
     width: 100vw;
     height: 100vh;
@@ -33,16 +33,16 @@ body {
     position: relative; 
     overflow: hidden;
 }
-/* ЛОГОТИП - левый верхний угол */
+
 .logo-bg {
     position: absolute;
     display: flex;
     top: 9vh;
     left: 0vw;
-    width: 28vw;  /* подстрой под размер лого */
+    width: 28vw;
     height: 23vh;
-    background-color: #F7DE1C;  /* красный */
-    z-index: 20;  /* выше текста, ниже лого */
+    background-color: #F7DE1C;
+    z-index: 20;
 }
 
 .logo {
@@ -50,13 +50,13 @@ body {
     display: flex;
     top: 13vh;
     left: 1vw;
-    width: 31vw;  /* подстрой под размер лого */
+    width: 31vw;
     height: 16vh;
     object-fit: contain;
-    z-index: 21;  /* самый верхний слой */
+    z-index: 21;
 }
 
-/* БЕГУЩАЯ СТРОКА ВНУТРИ ПРЯМОУГОЛЬНИКА */
+/* Бкгущая строка */
 .marquee-container {
     position: absolute;
     top: 2vh;
@@ -151,7 +151,7 @@ body {
     z-index: 3;
 }
 
-/* РОТ - между глазами по центру */
+/* Рот */
 .mouth {
     position: absolute;
     display: flex;
@@ -226,11 +226,11 @@ body {
     position: relative;
     z-index: 10;
 }
-/* ПЛАШКА*/
+
 .logo-bg-purple {
     background-color: #7A59A4;
 }
-/* ТЕКСТ ВМЕСТО ЛОГО */
+
 .purple-text {
     position: absolute;
     top: 20vh;
@@ -243,15 +243,15 @@ body {
     z-index: 31;
     white-space: nowrap;
 }
-/* БЕГУЩАЯ СТРОКА В ФИОЛЕТОВОМ БОКСЕ */
+/* Бегущая строка */
 .marquee-container-purple {
     position: absolute;
     top: 15vh;
     left: 0;
     width: 100%;
     overflow: hidden;
-    z-index: 20;  /* Выше изображения */
-    pointer-events: none;  /* Чтобы не мешала кликам */
+    z-index: 20;
+    pointer-events: none;
 }
 
 .marquee-content-purple {
@@ -271,7 +271,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Анимация бегущей строки (та же самая) */
 @keyframes scrollLeft {
     0% {
         transform: translateX(0);
@@ -288,6 +287,7 @@ body {
     object-fit: cover;
     object-position: center;
 }
+
 /* Зеленый бокс */
 .green-box {
     width: 100%;
@@ -336,11 +336,10 @@ body {
     justify-content: center;
     align-items: center;
     gap: 13vw;
-    z-index: 25;                  /* Между плашкой и бегущей строкой */
-    width: 60%;                   /* Отступы от краёв экрана */
+    z-index: 25;
+    width: 60%;
 }
 
-/* Скрываем radio buttons */
 .fist-toggle {
     display: none;
 }
@@ -362,7 +361,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* По умолчанию показываем только кулаки */
+/* По умолчанию видны только кулаки */
 .fist-closed {
     display: block;
 }
@@ -371,41 +370,34 @@ body {
     display: none;
 }
 
-/* Hover эффект для кулаков (подъём вверх) */
+/* Подъём вверх */
 .fist-label:hover .fist-closed {
     transform: translateY(-30px);
 }
 
-/* Когда radio checked - показываем руку, скрываем кулак */
+/* Показ руки, скрытие кулака */
 .fist-toggle:checked + .fist-label .fist-closed {
     display: none;
 }
 
 .fist-toggle:checked + .fist-label .fist-open {
     display: block;
-    transform: none;  /* Убираем анимацию у руки */
+    transform: none;
 }
 
-/* Убираем hover у руки */
 .fist-toggle:checked + .fist-label:hover .fist-open {
     transform: none;
 }
 
-/* ============================================
-   ЯБЛОКИ
-   ============================================ */
+/* Яблоки */
 
 .apple {
     position: absolute;
     height: auto;
-    display: none;                 /* Скрыты по умолчанию */
-    z-index: 30;                   /* Выше рук (z-index: 25) */
+    display: none;
+    z-index: 30;
     object-fit: contain;
 }
-
-/* ============================================
-   ПОКАЗЫВАЕМ ЯБЛОКИ ПРИ АКТИВНОЙ РУКЕ
-   ============================================ */
 
 /* Чистое яблоко у зелёной руки */
 #green-fist:checked + .fist-label .apple-clean {
@@ -475,12 +467,9 @@ body {
     object-position: center;
 }
 
+/* Общие стили для всех боксов */
 
-/* ============================================
-   ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БОКСОВ
-   ============================================ */
-
-/* Красные плашки (одинаковые для всех) */
+/* Плашки */
 .logo-bg-purple,
 .logo-bg-green,
 .logo-bg-blue,
@@ -494,7 +483,7 @@ body {
     z-index: 30;
 }
 
-/* Текст над плашкой (одинаковый стиль для всех) */
+/* Текст над плашкой */
 .purple-text,
 .green-text,
 .blue-text,
