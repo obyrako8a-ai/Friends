@@ -2,6 +2,7 @@
 // Бегущая строка
 // ============================================
 
+
 const marqueeContent = document.getElementById('marqueeContent');
 
 function setMarqueeSpeed(speedSeconds) {
@@ -73,3 +74,51 @@ fists.forEach(fist => {
         this.alt = this.alt.replace('Fist', 'Hand');
     });
 });
+
+// ============================================
+// АКСЕССУАРЫ - РАНДОМНОЕ ПОЯВЛЕНИЕ
+// ============================================
+
+const accessoryBtn = document.getElementById('accessoryBtn');
+const accessories = document.querySelectorAll('.accessory');
+
+// Массив всех аксессуаров
+const accessoryList = [
+    'accessory-hat',
+    'accessory-glasses',
+    'accessory-headphones',
+    'accessory-tie'
+];
+
+// Текущий видимый аксессуар
+let currentAccessory = 'accessory-hat';
+
+// Функция для показа случайного аксессуара
+function showRandomAccessory() {
+    // Скрываем текущий аксессуар
+    const currentEl = document.querySelector('.' + currentAccessory);
+    if (currentEl) {
+        currentEl.style.display = 'none';
+    }
+    
+    // Выбираем новый случайный аксессуар (не такой как текущий)
+    let newAccessory;
+    do {
+        const randomIndex = Math.floor(Math.random() * accessoryList.length);
+        newAccessory = accessoryList[randomIndex];
+    } while (newAccessory === currentAccessory);
+    
+    // Обновляем текущий аксессуар
+    currentAccessory = newAccessory;
+    
+    // Показываем новый аксессуар
+    const newEl = document.querySelector('.' + currentAccessory);
+    if (newEl) {
+        newEl.style.display = 'block';
+    }
+}
+
+// Обработчик клика на кнопку "аксессуар"
+if (accessoryBtn) {
+    accessoryBtn.addEventListener('click', showRandomAccessory);
+}

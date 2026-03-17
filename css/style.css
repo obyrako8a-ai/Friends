@@ -432,6 +432,121 @@ body {
     position: relative;
     z-index: 40;
 }
+/* АКСЕССУАРЫ - общие стили */
+.accessory {
+    position: absolute;
+    max-width: 30%;              /* Не больше размера фото лица */
+    width: auto;
+    height: auto;
+    object-fit: contain;         /* ✅ Не обрезает фото */
+    display: none;               /* Скрыты по умолчанию */
+    z-index: 12;
+    pointer-events: none;
+}
+
+/* ШЛЯПА - видна по умолчанию ✅ */
+.accessory-hat {
+    display: block;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ОЧКИ - по центру лица */
+.accessory-glasses {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* НАУШНИКИ - по центру лица */
+.accessory-headphones {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ГАЛСТУК - внизу лица */
+.accessory-tie {
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Кнопка (обновлённая) */
+.pink-button-left {
+    position: absolute;
+    top: 45%;
+    left: 5vw;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF8CBD;
+    border: 5px solid #FFFFFF;
+    padding: 20px 40px;
+    min-width: 280px;
+    height: 120px;
+    box-shadow: 15px 10px 0px 0px #FFFFFF;
+    z-index: 15;
+    cursor: pointer;             /* ✅ Курсор pointer */
+    transition: transform 0.1s;
+}
+
+.pink-button-left:active {
+    transform: translateY(-50%) scale(0.95);  /* ✅ Эффект нажатия */
+}
+
+.pink-button-right {
+    position: absolute;
+    top: 45%;
+    right: 5vw;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF8CBD;
+    border: 5px solid #FFFFFF;
+    padding: 20px 40px;
+    min-width: 280px;
+    height: 120px;
+    box-shadow: 15px 10px 0px 0px #FFFFFF;
+    z-index: 15;
+}
+
+.pink-button-left span,
+.pink-button-right span {
+    font-family: 'AlumniSans', sans-serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ТЕКСТ ВНУТРИ КНОПКИ */
+.pink-button-left span,
+.pink-button-right span {
+    font-family: 'AlumniSans', sans-serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+}
+/* ФОТО FACE ПО ЦЕНТРУ */
+.pink-box .pink-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    z-index: 10;
+    max-width: 30%;          /* ✅ Не больше 30% экрана */
+    height: auto;            /* ✅ Пропорции сохраняются */
+    object-fit: contain;     /* ✅ Не обрезает фото */
+}
+
 .logo-bg-pink {
     background-color: #FF8CBD;
 }
