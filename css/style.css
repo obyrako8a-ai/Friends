@@ -435,16 +435,16 @@ body {
 /* АКСЕССУАРЫ - общие стили */
 .accessory {
     position: absolute;
-    max-width: 30%;              /* Не больше размера фото лица */
+    max-width: 30%; 
     width: auto;
     height: auto;
-    object-fit: contain;         /* ✅ Не обрезает фото */
-    display: none;               /* Скрыты по умолчанию */
+    object-fit: contain;
+    display: none;
     z-index: 12;
     pointer-events: none;
 }
 
-/* ШЛЯПА - видна по умолчанию ✅ */
+/* ШЛЯПА */
 .accessory-hat {
     display: block;
     top: 30%;
@@ -452,28 +452,28 @@ body {
     transform: translateX(-50%);
 }
 
-/* ОЧКИ - по центру лица */
+/* ОЧКИ */
 .accessory-glasses {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* НАУШНИКИ - по центру лица */
+/* НАУШНИКИ  */
 .accessory-headphones {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* ГАЛСТУК - внизу лица */
+/* ГАЛСТУК */
 .accessory-tie {
     top: 65%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* Кнопка (обновлённая) */
+/* Кнопка */
 .pink-button-left {
     position: absolute;
     top: 45%;
@@ -489,12 +489,12 @@ body {
     height: 120px;
     box-shadow: 15px 10px 0px 0px #FFFFFF;
     z-index: 15;
-    cursor: pointer;             /* ✅ Курсор pointer */
+    cursor: pointer;
     transition: transform 0.1s;
 }
 
 .pink-button-left:active {
-    transform: translateY(-50%) scale(0.95);  /* ✅ Эффект нажатия */
+    transform: translateY(-50%) scale(0.95);
 }
 
 .pink-button-right {
@@ -542,9 +542,9 @@ body {
     transform: translate(-50%, -50%);
     display: block;
     z-index: 10;
-    max-width: 30%;          /* ✅ Не больше 30% экрана */
-    height: auto;            /* ✅ Пропорции сохраняются */
-    object-fit: contain;     /* ✅ Не обрезает фото */
+    max-width: 30%;
+    height: auto;
+    object-fit: contain;
 }
 
 .logo-bg-pink {
