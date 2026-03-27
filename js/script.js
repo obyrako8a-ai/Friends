@@ -76,51 +76,64 @@ fists.forEach(fist => {
 });
 
 // ============================================
-// АКСЕССУАРЫ - РАНДОМНОЕ ПОЯВЛЕНИЕ
+// АКСЕССУАРЫ - ДИНАМИЧЕСКОЕ СОЗДАНИЕ
 // ============================================
 
 const accessoryBtn = document.getElementById('accessoryBtn');
-const accessories = document.querySelectorAll('.accessory');
+const accessoriesContainer = document.getElementById('accessories-container');
 
-// Массив всех аксессуаров
+// Список аксессуаров
 const accessoryList = [
-    'accessory-hat',
-    'accessory-glasses',
-    'accessory-headphones',
-    'accessory-tie'
+    { class: 'accessory-hat', src: 'images/blue_hat.svg', alt: 'Hat' },
+    { class: 'accessory-glasses', src: 'images/blue_glasses.svg', alt: 'Glasses' },
+    { class: 'accessory-headphones', src: 'images/blue_headphones.svg', alt: 'Headphones' },
+    { class: 'accessory-tie', src: 'images/blue_tie.svg', alt: 'Tie' }
 ];
 
-// Текущий видимый аксессуар
-let currentAccessory = 'accessory-hat';
+// Текущий аксессуар
+let currentAccessory = null;
 
-// Функция для показа случайного аксессуара
+// Функция создания аксессуара
+function createAccessory(accessory) {
+    const img = document.createElement('img');
+    img.src = accessory.src;
+    img.alt = accessory.alt;
+    img.className = `accessory ${accessory.class}`;
+    // ✅ Inline style переопределит CSS display: none
+    img.style.display = 'block';
+    return img;
+}
+
+// Функция показа случайного аксессуара
 function showRandomAccessory() {
-    // Скрыть текущий аксессуар
-    const currentEl = document.querySelector('.' + currentAccessory);
-    if (currentEl) {
-        currentEl.style.display = 'none';
+    // Удаляем текущий аксессуар
+    if (currentAccessory && currentAccessory.element) {
+        currentAccessory.element.remove();
     }
     
-    // случайный аксессуар (не такой как текущий)
+    // Выбираем случайный аксессуар
     let newAccessory;
     do {
         const randomIndex = Math.floor(Math.random() * accessoryList.length);
         newAccessory = accessoryList[randomIndex];
-    } while (newAccessory === currentAccessory);
+    } while (currentAccessory && newAccessory.class === currentAccessory.class);
     
-    // Обновляем текущий аксессуар
-    currentAccessory = newAccessory;
+    // Создаём и добавляем новый аксессуар
+    const newElement = createAccessory(newAccessory);
+    accessoriesContainer.appendChild(newElement);
     
-    // Показываем новый аксессуар
-    const newEl = document.querySelector('.' + currentAccessory);
-    if (newEl) {
-        newEl.style.display = 'block';
-    }
+    // Сохраняем ссылку на текущий
+    currentAccessory = {
+        class: newAccessory.class,
+        element: newElement
+    };
 }
 
-// Обработчик клика на кнопку "аксессуар"
+// Обработчик клика
 if (accessoryBtn) {
     accessoryBtn.addEventListener('click', showRandomAccessory);
+} else {
+    console.warn('Кнопка #accessoryBtn не найдена!');
 }
 
 // ============================================

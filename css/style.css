@@ -456,7 +456,222 @@ body {
     object-fit: cover;
     object-position: center;
 }
-/* Голубой бокс */
+/* Большой контейнер - размещаем НИЖЕ */
+.rectangles-container {
+    position: absolute;
+    top: 45vh;                   /* ✅ Ниже плашки и текста */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;     /* ✅ Прямоугольники прижаты к ВЕРХУ контейнера */
+    gap: 0;                      /* ✅ Прижаты друг к другу */
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Левый бокс - уже */
+.left-column {
+    position: absolute;
+    top: 45vh;
+    left: 0;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0vh;
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Правый бокс - шире */
+.right-column {
+    position: absolute;
+    top: 45vh;
+    right: 0;
+    width: 55vw;                  /* ✅ 55% ширины экрана */
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* ============================================
+   ВЕРТИКАЛЬНЫЕ ПРЯМОУГОЛЬНИКИ (верхний ряд)
+   ============================================ */
+
+.rectangles-row-vertical {
+    display: flex;
+    flex-direction: row;
+    gap: 0;                       /* ✅ Прижаты друг к другу */
+    width: 100%;
+}
+
+/* Красный и Фиолетовый (вертикальные, на всю ширину левого бокса) */
+.rectangle-red,
+.rectangle-purple {
+    position: relative;
+    width: 50%;                   /* ✅ Каждый занимает половину левого бокса */
+    height: 35vh;                 /* ✅ Вертикальные */
+    border: 0.5vw solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   ГОРИЗОНТАЛЬНЫЕ ПРЯМОУГОЛЬНИКИ (нижний ряд)
+   ============================================ */
+
+.rectangles-row-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 0;                       /* ✅ Прижаты друг к другу */
+    width: 100%;
+}
+
+/* Розовый (горизонтальный, меньше по высоте) */
+.rectangle-pink {
+    position: relative;
+    width: 100%;                  /* ✅ На всю ширину левого бокса */
+    height: 12vh;                 /* ✅ Меньше по высоте */
+    border: 0.5vw solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Жёлтый (горизонтальный, выше розового) */
+.rectangle-yellow {
+    position: relative;
+    width: 100%;                  /* ✅ На всю ширину левого бокса */
+    height: 18vh;                 /* ✅ Выше розового */
+    border: 0.5vw solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   ПРАВЫЙ БОКС - КОНТЕЙНЕР
+   ============================================ */
+
+.right-column {
+    position: absolute;
+    top: 45vh;
+    right: 0;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* ============================================
+   ВЕРХНЯЯ ЧАСТЬ ПРАВОГО БОКСА
+   ============================================ */
+
+.right-column-top {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+}
+
+/* Левая половина: голубой + зеленый (вертикально) */
+.right-column-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Правая половина: розовый на всю высоту верхней части */
+.right-column-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ============================================
+   ПРЯМОУГОЛЬНИКИ ПРАВОГО БОКСА
+   ============================================ */
+
+/* Голубой прямоугольник (верхний левый) */
+.rectangle-light-blue-top {
+    width: 100%;
+    height: 17vh;
+    border: 0.5vw solid #000000;
+    margin: 0;
+}
+
+/* Зеленый квадрат (нижний левый) */
+.rectangle-green-square {
+    width: 100%;
+    height: 17vh;
+    border: 0.5vw solid #000000;
+    margin: 0;
+}
+
+/* Розовый прямоугольник (правая половина на всю высоту верхней части) */
+.rectangle-pink-full {
+    width: 100%;
+    height: 34vh;                 /* ✅ 17vh + 17vh = полная высота */
+    border: 0.5vw solid #000000;
+    margin: 0;
+}
+
+/* Узкий голубой прямоугольник (низ правого бокса на всю ширину) */
+.rectangle-light-blue-bottom {
+    width: 100%;
+    height: 8vh;
+    border: 0.5vw solid #000000;
+    margin: 0;
+}
+
+/* ============================================
+   ЦВЕТА
+   ============================================ */
+
+.rectangle-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.rectangle-light-blue-top .rectangle-inner {
+    background-color: #05C1F1;
+}
+
+.rectangle-green-square .rectangle-inner {
+    background-color: #01B37F;
+}
+
+.rectangle-pink-full .rectangle-inner {
+    background-color: #FF8CBD;
+}
+
+.rectangle-light-blue-bottom .rectangle-inner {
+    background-color: #05C1F1;
+}
+
+/* Левый бокс */
+.rectangle-red .rectangle-inner {
+    background-color: #FF4431;
+}
+
+.rectangle-purple .rectangle-inner {
+    background-color: #7A59A4;
+}
+
+.rectangle-pink .rectangle-inner {
+    background-color: #FF8CBD;
+}
+
+.rectangle-yellow .rectangle-inner {
+    background-color: #F7DE1C;
+}
+
+
+/* ГОЛУБОЙ БОКС */
 .blue-box {
     width: 100%;
     min-height: 100vh;
@@ -566,7 +781,7 @@ body {
     right: -2vw;
 }
 
-/* Розовый бокс */
+/* РОЗОВЫЙ БОКС */
 .pink-box {
     width: 100%;
     min-height: 100vh;
@@ -581,7 +796,7 @@ body {
 /* АКСЕССУАРЫ - общие стили */
 .accessory {
     position: absolute;
-    max-width: 30%; 
+    max-width: 30%;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -592,7 +807,6 @@ body {
 
 /* ШЛЯПА */
 .accessory-hat {
-    display: block;
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
@@ -704,7 +918,8 @@ body {
     object-fit: cover;
     object-position: center;
 }
-/* Синий бокс */
+
+/* СИНИЙ БОКС */
 .dark-blue-box {
     width: 100%;
     min-height: 100vh;
@@ -728,7 +943,7 @@ body {
     object-position: center;
 }
 
-/* Логотип в синем боксе */
+/* Логотип */
 .dark-blue-logo {
     position: absolute;
     top: 3vh;
@@ -738,7 +953,7 @@ body {
     z-index: 31;
 }
 
-/* Общие стили для всех боксов */
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БОКСОВ */
 
 /* Плашки */
 .logo-bg-purple,

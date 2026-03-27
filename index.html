@@ -98,8 +98,60 @@
     </div>
 </div>
 
-    <!-- ЗЕЛЕНЫЙ БОКС -->
+<!-- ЗЕЛЕНЫЙ БОКС -->
 <div class="green-box">
+    <!-- Фоновая картинка -->
+    <img src="images/green_background.svg" alt="Green background">
+     <!-- ЛЕВЫЙ БОКС с прямоугольниками -->
+    <div class="left-column">
+        <!-- Верхний ряд: Красный + Фиолетовый (вертикальные) -->
+        <div class="rectangles-row-vertical">
+            <div class="rectangle-item rectangle-red">
+                <div class="rectangle-inner"></div>
+            </div>
+            <div class="rectangle-item rectangle-purple">
+                <div class="rectangle-inner"></div>
+            </div>
+        </div>
+        <!-- Нижний ряд: Розовый + Жёлтый (горизонтальные) -->
+        <div class="rectangles-row-horizontal">
+            <div class="rectangle-item rectangle-pink">
+                <div class="rectangle-inner"></div>
+            </div>
+            <div class="rectangle-item rectangle-yellow">
+                <div class="rectangle-inner"></div>
+            </div>
+        </div>
+    </div>
+<!-- ПРАВЫЙ БОКС  -->
+<div class="right-column">
+    <!-- Верхняя часть: слева голубой+зеленый, справа розовый -->
+    <div class="right-column-top">
+        <!-- Левая половина: голубой сверху, зеленый снизу -->
+        <div class="right-column-left">
+            <div class="rectangle-item rectangle-light-blue-top">
+                <div class="rectangle-inner"></div>
+            </div>
+            <div class="rectangle-item rectangle-green-square">
+                <div class="rectangle-inner"></div>
+            </div>
+        </div>
+        
+        <!-- Правая половина: розовый на всю высоту -->
+        <div class="right-column-right">
+            <div class="rectangle-item rectangle-pink-full">
+                <div class="rectangle-inner"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Низ: узкий голубой на всю ширину -->
+    <div class="right-column-bottom">
+        <div class="rectangle-item rectangle-light-blue-bottom">
+            <div class="rectangle-inner"></div>
+        </div>
+    </div>
+</div>
     <!-- Плашка -->
     <div class="logo-bg-green"></div>
     <!-- Текст над плашкой -->
@@ -113,8 +165,6 @@
             <h1 class="title-green">Один в поле не воин</h1>
         </div>
     </div>
-    <!-- Фоновая картинка -->
-    <img src="images/green_background.svg" alt="Green background">
 </div>
 
 <!-- ГОЛУБОЙ БОКС -->
@@ -165,17 +215,12 @@
     <img src="images/pink_background.svg" alt="Pink background" class="pink-bg">
     <!-- Лицо -->
     <img src="images/face.svg" alt="Face" class="pink-face">
-    <!-- Аксессуары-->
-    <img src="images/blue_glasses.svg" alt="Glasses" class="accessory accessory-glasses">
-    <img src="images/blue_hat.svg" alt="Hat" class="accessory accessory-hat">
-    <img src="images/blue_headphones.svg" alt="Headphones" class="accessory accessory-headphones">
-    <img src="images/blue_tie.svg" alt="Tie" class="accessory accessory-tie">
-    <!-- Кнопки -->
-    <div class="pink-button-left">
+     <!-- Кнопки -->
+    <div class="pink-button-left" id="accessoryBtn">
         <span>аксессуар</span>
     </div>
     <div class="pink-button-right">
-    <span>цвет</span>
+        <span>цвет</span>
     </div>
     <!-- Плашка -->
     <div class="logo-bg-pink"></div>
@@ -192,7 +237,7 @@
     </div>
 </div>
 
-<!-- Синий бокс -->
+<!-- СИНИЙ БОКС -->
 <div class="dark-blue-box">
     <!-- Плашка -->
     <div class="logo-bg-dark-blue"></div>
