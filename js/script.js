@@ -95,13 +95,13 @@ let currentAccessory = 'accessory-hat';
 
 // Функция для показа случайного аксессуара
 function showRandomAccessory() {
-    // Скрываем текущий аксессуар
+    // Скрыть текущий аксессуар
     const currentEl = document.querySelector('.' + currentAccessory);
     if (currentEl) {
         currentEl.style.display = 'none';
     }
     
-    // Выбираем новый случайный аксессуар (не такой как текущий)
+    // случайный аксессуар (не такой как текущий)
     let newAccessory;
     do {
         const randomIndex = Math.floor(Math.random() * accessoryList.length);
@@ -121,4 +121,54 @@ function showRandomAccessory() {
 // Обработчик клика на кнопку "аксессуар"
 if (accessoryBtn) {
     accessoryBtn.addEventListener('click', showRandomAccessory);
+}
+
+// ============================================
+// MONEY - ВСЕГДА УБЕГАЕТ ОТ КУРСОРА
+// ============================================
+
+const moneyImg = document.querySelector('.money-img');
+
+if (moneyImg) {
+    // Минимальное расстояние между курсором и money (в пикселях)
+    const minDistance = 300;
+    
+    // Максимальное смещение от центра (в пикселях)
+    const maxOffset = 400;
+    
+    // Отслеживаем движение мыши
+    document.addEventListener('mousemove', (e) => {
+        // Получаем координаты мыши
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        // Получаем координаты центра экрана (где находится money)
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        // Вычисляем вектор от курсора к центру
+        const deltaX = centerX - mouseX;
+        const deltaY = centerY - mouseY;
+        
+        // Вычисляем расстояние от курсора до центра
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        // Если курсор ближе чем minDistance - money убегает
+        if (distance < minDistance) {
+            // Нормализуем вектор направления
+            const normalizedX = deltaX / distance;
+            const normalizedY = deltaY / distance;
+            
+            // Вычисляем смещение (чем ближе курсор, тем сильнее убегает)
+            const escapeRatio = (minDistance - distance) / minDistance;
+            const moveX = normalizedX * maxOffset * escapeRatio;
+            const moveY = normalizedY * maxOffset * escapeRatio;
+            
+            // Двигаем money в противоположную сторону от курсора
+            moneyImg.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+        } else {
+            // Если курсор далеко - money возвращается в центр
+            moneyImg.style.transform = `translate(-50%, -50%)`;
+        }
+    });
 }

@@ -279,13 +279,89 @@ body {
         transform: translateX(-50%);
     }
 }
-.purple-box img {
+.purple-box .purple-bg {      /* ← Только для фона */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     min-height: 100vh;
-    display: flex;
+    display: block;           /* ← было flex */
     object-fit: cover;
     object-position: center;
+    z-index: 1;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ЦВЕТНЫХ ЛИЦ */
+.faces-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;
+    z-index: 5;
+    pointer-events: none;
+    width: 100%;
+}
+
+/* СТРОКА С ЛИЦАМИ */
+.faces-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 13vw;
+    width: 100%;
+}
+/* СТРОКА С PLUS */
+.plus-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 19.5vw;
+    width: 100%;
+    transform: translateY(-15vh);
+}
+/* ЦВЕТНЫЕ ЛИЦА */
+.face {
+    width: auto;
+    height: auto;
+    max-height: 20vh;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+/* PLUS */
+.plus {
+    width: auto;
+    height: auto;
+    max-height: 8vh;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    z-index: 6;
+}
+
+
+/* ФОТО MONEY ПО ЦЕНТРУ */
+.money-img {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-height: 25vh;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    transition: transform 0.1s ease-out;
+    pointer-events: none;
 }
 
 /* Зеленый бокс */
