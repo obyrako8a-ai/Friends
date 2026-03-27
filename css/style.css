@@ -345,8 +345,14 @@ body {
     display: block;
     flex-shrink: 0;
     z-index: 6;
+     cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.1s;
 }
 
+.plus:active {
+    transform: scale(0.9);
+}
 
 /* ФОТО MONEY ПО ЦЕНТРУ */
 .money-img {
@@ -362,6 +368,98 @@ body {
     z-index: 10;
     transition: transform 0.1s ease-out;
     pointer-events: none;
+}
+
+.faces-mobile {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    
+    .faces-row .face:last-child {
+        display: none;
+    }
+    .plus-row .plus:last-child {
+        display: none;
+    }
+    .faces-row {
+        gap: 18vw;
+    }
+    .plus-row {
+        gap: 30vw;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .faces-row .face:nth-last-child(2) {
+        display: none;
+    }
+    .plus-row .plus:nth-last-child(2) {
+        display: none;
+    }
+    .faces-row {
+        gap: 25vw;
+    }
+    .plus-row {
+        gap: 35vw;
+    }
+}
+
+@media (max-width: 475px) {
+    
+    .faces-container {
+        display: none;
+    }
+    .faces-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+    .faces-mobile-img {
+        width: auto;
+        height: auto;
+        max-height: 30vh;
+        object-fit: contain;
+        display: block;
+    }
+    .faces-mobile-plus {
+        position: absolute;
+        top: 95%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        max-height: 10vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        z-index: 6;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+    .money-img {
+        top: 45%;
+        max-height: 20vh;
+    }
+    .purple-text {
+        font-size: 32px;
+        top: 12vh;
+        left: 3vw;
+    }
+    .title-purple {
+        font-size: 80px;
+    }
+    .logo-bg-purple {
+        width: 40vw;
+        height: 15vh;
+        top: 12vh;
+    }
 }
 
 /* Зеленый бокс */

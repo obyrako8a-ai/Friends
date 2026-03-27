@@ -172,3 +172,40 @@ if (moneyImg) {
         }
     });
 }
+
+// ============================================
+// PLUS → CHECK_MARK ПРИ КЛИКЕ
+// ============================================
+
+const plusImages = document.querySelectorAll('.plus');
+
+plusImages.forEach(plus => {
+    plus.addEventListener('click', () => {
+        // Меняем src с plus.svg на check_mark.svg
+        if (plus.src.includes('plus.svg')) {
+            plus.src = 'images/check_mark.svg';
+            plus.alt = 'Check Mark';
+        } else {
+            // Можно вернуть back to plus при повторном клике (опционально)
+            plus.src = 'images/plus.svg';
+            plus.alt = 'Plus';
+        }
+    });
+    
+    // Добавляем курсор pointer для кликабельности
+    plus.style.cursor = 'pointer';
+    plus.style.pointerEvents = 'auto';
+});
+
+// PLUS для мобильной версии (475px)
+const mobilePlus = document.querySelector('.faces-mobile-plus');
+
+if (mobilePlus) {
+    mobilePlus.addEventListener('click', () => {
+        if (mobilePlus.src.includes('plus.svg')) {
+            mobilePlus.src = 'images/check_mark.svg';
+        } else {
+            mobilePlus.src = 'images/plus.svg';
+        }
+    });
+}
