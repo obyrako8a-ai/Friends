@@ -36,7 +36,7 @@ body {
 
 .logo-bg {
     position: absolute;
-    display: flex;
+    display: block;
     top: 9vh;
     left: 0vw;
     width: 28vw;
@@ -47,7 +47,7 @@ body {
 
 .logo {
     position: relative;
-    display: flex;
+    display: block;
     top: 13vh;
     left: 1vw;
     width: 31vw;
@@ -433,47 +433,50 @@ body {
     }
 }
 
-/* Зеленый бокс */
+/* ЗЕЛЕНЫЙ БОКС */
 .green-box {
     width: 100%;
     min-height: 100vh;
     border-top: none;
-    display: flex;
+    display: block;
     overflow: hidden;
     background-color: transparent;
     margin-top: -32vh;
     position: relative;
     z-index: 20;
 }
+
 .logo-bg-green {
     background-color: #01B37F;
 }
+
 .green-box img {
     width: 100%;
     height: 100%;
     min-height: 100vh;
     display: flex;
-    object-fit: cover;
+    object-fit: contain; 
     object-position: center;
 }
+
 /* Большой контейнер - размещаем НИЖЕ */
 .rectangles-container {
     position: absolute;
-    top: 45vh;                   /* ✅ Ниже плашки и текста */
+    top: 45vh;
     left: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;     /* ✅ Прямоугольники прижаты к ВЕРХУ контейнера */
-    gap: 0;                      /* ✅ Прижаты друг к другу */
+    align-items: flex-start;
+    gap: 0;
     z-index: 15;
     pointer-events: none;
 }
 
-/* Левый бокс - уже */
+/* ЛЕВЫЙ БОКС */
 .left-column {
     position: absolute;
-    top: 45vh;
+    top: 40vh;
     left: 0;
     width: 45vw;
     display: flex;
@@ -483,79 +486,218 @@ body {
     pointer-events: none;
 }
 
-/* Правый бокс - шире */
-.right-column {
-    position: absolute;
-    top: 45vh;
-    right: 0;
-    width: 55vw;                  /* ✅ 55% ширины экрана */
-    z-index: 15;
-    pointer-events: none;
-}
-
-/* ============================================
-   ВЕРТИКАЛЬНЫЕ ПРЯМОУГОЛЬНИКИ (верхний ряд)
-   ============================================ */
-
+/* Вертикальные прямоугольники */
 .rectangles-row-vertical {
     display: flex;
     flex-direction: row;
-    gap: 0;                       /* ✅ Прижаты друг к другу */
+    gap: 0;
     width: 100%;
 }
 
-/* Красный и Фиолетовый (вертикальные, на всю ширину левого бокса) */
+/* Красный и Фиолетовый прямоугольники */
 .rectangle-red,
 .rectangle-purple {
     position: relative;
-    width: 50%;                   /* ✅ Каждый занимает половину левого бокса */
-    height: 35vh;                 /* ✅ Вертикальные */
+    width: 50%;
+    height: 35vh;
     border: 0.5vw solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
-
-/* ============================================
-   ГОРИЗОНТАЛЬНЫЕ ПРЯМОУГОЛЬНИКИ (нижний ряд)
-   ============================================ */
 
 .rectangles-row-horizontal {
     display: flex;
     flex-direction: column;
-    gap: 0;                       /* ✅ Прижаты друг к другу */
+    gap: 0;
     width: 100%;
 }
 
-/* Розовый (горизонтальный, меньше по высоте) */
+/* Красные глаза */
+.rectangle-red .rectangle-eyes {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 12vw;
+    max-height: 12vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Зеленый нос */
+.rectangle-red .rectangle-nose-green {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 8vw;
+    max-height: 8vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Рога */
+.rectangle-purple .rectangle-horns {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 14vw;
+    max-height: 14vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Фиолетовые глаза */
+.rectangle-purple .rectangle-eyes-purple {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 12vw;
+    max-height: 12vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Розовый прямоугольник */
 .rectangle-pink {
     position: relative;
-    width: 100%;                  /* ✅ На всю ширину левого бокса */
-    height: 12vh;                 /* ✅ Меньше по высоте */
+    width: 100%;
+    height: 18vh;
     border: 0.5vw solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
-/* Жёлтый (горизонтальный, выше розового) */
+/* Кошачьи уши */
+.rectangle-pink .rectangle-ear {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 6vw;
+    max-height: 6vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левое ухо */
+.rectangle-pink .rectangle-ear-left {
+    left: 15%; 
+}
+
+/* Правое ухо  */
+.rectangle-pink .rectangle-ear-right {
+    right: 15%;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+/* Розовые глаза */
+.rectangle-pink .rectangle-eye {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 5vw;
+    max-height: 5vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левый глаз */
+.rectangle-pink .rectangle-eye-left {
+    left: 35%;
+}
+
+/* Правый глаз */
+.rectangle-pink .rectangle-eye-right {
+    right: 35%;
+}
+
+/* Жёлтый прямоугольник */
 .rectangle-yellow {
     position: relative;
-    width: 100%;                  /* ✅ На всю ширину левого бокса */
-    height: 18vh;                 /* ✅ Выше розового */
+    width: 100%;
+    height: 22vh;
     border: 0.5vw solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
-/* ============================================
-   ПРАВЫЙ БОКС - КОНТЕЙНЕР
-   ============================================ */
+/* Желтые глаза */
+.rectangle-yellow .rectangle-eye-yellow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    max-width: 6vw;
+    max-height: 6vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
 
+/* Левый глаз */
+.rectangle-yellow .rectangle-eye-yellow-left {
+    left: 25%;
+}
+
+/* Правый глаз */
+.rectangle-yellow .rectangle-eye-yellow-right {
+    right: 25%;
+}
+
+/* Рот */
+.rectangle-yellow .rectangle-mouth {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 10vw;
+    max-height: 10vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ПРАВЫЙ БОКС */
 .right-column {
     position: absolute;
-    top: 45vh;
+    top: 40vh;
     right: 0;
     width: 55vw;
     display: flex;
@@ -565,10 +707,7 @@ body {
     pointer-events: none;
 }
 
-/* ============================================
-   ВЕРХНЯЯ ЧАСТЬ ПРАВОГО БОКСА
-   ============================================ */
-
+/* Верхняя часть правого бокса */
 .right-column-top {
     display: flex;
     flex-direction: row;
@@ -576,7 +715,7 @@ body {
     width: 100%;
 }
 
-/* Левая половина: голубой + зеленый (вертикально) */
+/* Левая половина: голубой + зеленый прямоугольники */
 .right-column-left {
     width: 50%;
     display: flex;
@@ -584,7 +723,7 @@ body {
     gap: 0;
 }
 
-/* Правая половина: розовый на всю высоту верхней части */
+/* Правая половина: розовый прямоугольник */
 .right-column-right {
     width: 50%;
     display: flex;
@@ -596,36 +735,191 @@ body {
    ПРЯМОУГОЛЬНИКИ ПРАВОГО БОКСА
    ============================================ */
 
-/* Голубой прямоугольник (верхний левый) */
+/* Голубой прямоугольник */
 .rectangle-light-blue-top {
     width: 100%;
-    height: 17vh;
+    height: 30vh;
     border: 0.5vw solid #000000;
     margin: 0;
+    position: relative; 
+    overflow: hidden;
 }
 
-/* Зеленый квадрат (нижний левый) */
+/* Голубые глаза */
+.rectangle-light-blue-top .rectangle-eye-blue {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    max-width: 6vw;
+    max-height: 6vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левый глаз */
+.rectangle-light-blue-top .rectangle-eye-blue-left {
+    left: 7%;
+}
+
+/* Правый глаз */
+.rectangle-light-blue-top .rectangle-eye-blue-right {
+    right: 7%;
+}
+
+/* Рот */
+.rectangle-light-blue-top .rectangle-mouth-blue {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 16vw;
+    max-height: 16vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Зеленый квадрат */
 .rectangle-green-square {
     width: 100%;
-    height: 17vh;
+    height: 35vh;
     border: 0.5vw solid #000000;
     margin: 0;
+    position: relative;    
 }
 
-/* Розовый прямоугольник (правая половина на всю высоту верхней части) */
+.rectangle-nose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 12vw;
+    max-height: 12vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Розовый прямоугольник */
 .rectangle-pink-full {
     width: 100%;
-    height: 34vh;                 /* ✅ 17vh + 17vh = полная высота */
+    height: 65vh;
     border: 0.5vw solid #000000;
     margin: 0;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Узкий голубой прямоугольник (низ правого бокса на всю ширину) */
+/* Розовые глаза */
+.rectangle-pink-full .rectangle-eye-pink {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    max-width: 8vw;
+    max-height: 8vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левый глаз */
+.rectangle-pink-full .rectangle-eye-pink-left {
+    left: 8%;
+}
+
+/* Правый глаз */
+.rectangle-pink-full .rectangle-eye-pink-right {
+    right: 8%;
+}
+
+/* Красный нос */
+.rectangle-pink-full .rectangle-nose-red {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 13vw;
+    max-height: 13vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Голубой прямоугольник внизу */
 .rectangle-light-blue-bottom {
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     border: 0.5vw solid #000000;
     margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Человеческие уши */
+.rectangle-light-blue-bottom .rectangle-ear-human {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 4vw;
+    max-height: 4vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левое ухо */
+.rectangle-light-blue-bottom .rectangle-ear-human-left {
+    left: 10%;
+}
+
+/* Правое ухо */
+.rectangle-light-blue-bottom .rectangle-ear-human-right {
+    right: 10%;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+/* Голубые глаза */
+.rectangle-light-blue-bottom .rectangle-eye-blue-bottom {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 4vw;
+    max-height: 4vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Левый глаз */
+.rectangle-light-blue-bottom .rectangle-eye-blue-bottom-left {
+    left: 30%;
+}
+
+/* Правый глаз */
+.rectangle-light-blue-bottom .rectangle-eye-blue-bottom-right {
+    right: 30%;
 }
 
 /* ============================================
@@ -834,7 +1128,7 @@ body {
 }
 
 /* Кнопка */
-.pink-button-left {
+.pink-button-left  {
     position: absolute;
     top: 45%;
     left: 5vw;
@@ -843,11 +1137,11 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #FF8CBD;
-    border: 5px solid #FFFFFF;
-    padding: 20px 40px;
-    min-width: 280px;
-    height: 120px;
-    box-shadow: 15px 10px 0px 0px #FFFFFF;
+    border: 0.3vw solid #FFFFFF;
+    padding: 2vh 4vw;
+    min-width: 15vw;
+    height: 18vh;
+    box-shadow: 1vw 0.5vh 0px 0px #FFFFFF;
     z-index: 15;
     cursor: pointer;
     transition: transform 0.1s;
@@ -866,29 +1160,21 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #FF8CBD;
-    border: 5px solid #FFFFFF;
-    padding: 20px 40px;
-    min-width: 280px;
-    height: 120px;
-    box-shadow: 15px 10px 0px 0px #FFFFFF;
+    border: 0.3vw solid #FFFFFF;
+    padding: 2vh 4vw;
+    min-width: 20vw;
+    height: 18vh;
+    box-shadow: 1vw 0.5vh 0px 0px #FFFFFF;
     z-index: 15;
-}
-
-.pink-button-left span,
-.pink-button-right span {
-    font-family: 'AlumniSans', sans-serif;
-    font-size: 64px;
-    font-weight: 500;
-    color: #FFFFFF;
-    text-align: center;
-    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.1s;
 }
 
 /* ТЕКСТ ВНУТРИ КНОПКИ */
 .pink-button-left span,
 .pink-button-right span {
     font-family: 'AlumniSans', sans-serif;
-    font-size: 64px;
+    font-size: 4vw;
     font-weight: 500;
     color: #FFFFFF;
     text-align: center;
@@ -924,23 +1210,32 @@ body {
     width: 100%;
     min-height: 100vh;
     border-top: none;
-    display: flex;
+    display: block;
     overflow: hidden;
     background-color: transparent;
-    margin-top: -80vh;
+    margin-top: -65vh;
     position: relative;
     z-index: 50;
 }
+
 .logo-bg-dark-blue {
     background-color: #2B50AA;
 }
-.dark-blue-box img {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    object-fit: cover;
+
+/* ✅ ИСПРАВЛЕНО: Фоновое изображение */
+.dark-blue-box .dark-blue-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100vh;
+    display: block;
+    object-fit: contain;
     object-position: center;
+    z-index: 1;
 }
 
 /* Логотип */
@@ -951,6 +1246,7 @@ body {
     width: 10vw;
     height: auto;
     z-index: 31;
+    display: block;
 }
 
 /* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БОКСОВ */
@@ -962,6 +1258,7 @@ body {
 .logo-bg-pink,
 .logo-bg-dark-blue {
     position: absolute;
+    display: block;
     top: 20vh;
     left: 0vw;
     width: 30vw;
