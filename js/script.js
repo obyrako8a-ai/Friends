@@ -57,25 +57,6 @@ function moveEye(eye, cursorX, cursorY, side) {
 }
 
 // ============================================
-// Смена кулаков на руки
-// ============================================
-
-const fists = document.querySelectorAll('.fist');
-
-fists.forEach(fist => {
-    fist.addEventListener('click', function() {
-        
-        const handSrc = this.getAttribute('data-hand');
-        
-        this.src = handSrc;
-        
-        this.classList.add('hand-active');
-        
-        this.alt = this.alt.replace('Fist', 'Hand');
-    });
-});
-
-// ============================================
 // АКСЕССУАРЫ - ДИНАМИЧЕСКОЕ СОЗДАНИЕ
 // ============================================
 

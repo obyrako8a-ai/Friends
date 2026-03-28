@@ -14,8 +14,19 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
+
+.green-box,
+.blue-box,
+.pink-box,
+.purple-box,
+.dark-blue-box {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Желтый бокс */
 .box {
     width: 100vw;
@@ -1403,17 +1414,99 @@ body {
     /* ГОЛУБОЙ БОКС */
     
     .blue-box {
+        min-height: 150vh;
         margin-top: -10vh;
+    }
+
+ .blue-box img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    object-fit: contain;
+    object-position: center;
+}
+
+    /* Контейнер для кулаков - ВЕРТИКАЛЬНО И НИЖЕ ✅ */
+    .fists-container {
+        position: absolute;
+        top: 100vh;                   /* ✅ Было 80vh, стало 100vh (ещё ниже) */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8vh;
+        z-index: 25;
+        width: 40vw;
+    }
+    
+    /* Label */
+    .fist-label {
+        position: relative;
+        width: 30vw;
+        height: auto;
+        cursor: pointer;
+        display: block;
+    }
+    
+    /* ============================================
+       СКРЫТЬ ВСЕ ЛИШНИЕ ФОТО ✅
+       ============================================ */
+    
+    /* Все кулаки и ладони */
+    .fist-img {
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        max-width: 100%;
+    }
+    
+    /* ✅ По умолчанию видны ТОЛЬКО закрытые кулаки */
+    .fist-closed {
+        display: block !important;
+    }
+    
+    /* ✅ Открытые ладони скрыты */
+    .fist-open {
+        display: none !important;
+    }
+    
+    /* ✅ Все яблоки скрыты */
+    .apple {
+        display: none !important;
+    }
+    
+    /* ============================================
+       АНИМАЦИЯ ПРИ КЛИКЕ ✅
+       ============================================ */
+    
+    /* При клике: скрыть кулак, показать ладонь */
+    .fist-toggle:checked + .fist-label .fist-closed {
+        display: none !important;
+    }
+    
+    .fist-toggle:checked + .fist-label .fist-open {
+        display: block !important;
+    }
+    
+    .pink-box {
+        margin-top: -10vh !important;
     }
 }
 
-/* ГОЛУБОЙ БОКС */
+/* ============================================
+   ГОЛУБОЙ БОКС - БАЗОВЫЕ СТИЛИ
+   ============================================ */
+
 .blue-box {
     width: 100%;
     min-height: 100vh;
     border-top: none;
     display: block;
-    overflow: hidden;
+    overflow: visible;
     background-color: transparent;
     margin-top: -30vh;
     position: relative;
@@ -1424,7 +1517,8 @@ body {
     background-color: #05C1F1;
 }
 
-.blue-box img {
+/* Фоновое изображение */
+ .blue-box img {
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -1433,15 +1527,21 @@ body {
     object-position: center;
 }
 
-.blue-box .fist-img,
-.blue-box .apple {
+
+/* Кулаки и ладони */
+.blue-box .fist-img {
     width: auto;
     height: auto;
     min-height: 0;
     display: block;
+    position: relative;
+    z-index: 25;
 }
 
-/* Контейнер для трёх кулаков */
+/* ============================================
+   КОНТЕЙНЕР ДЛЯ КУЛАКОВ
+   ============================================ */
+
 .fists-container {
     position: absolute;
     top: 85vh;
@@ -1459,7 +1559,6 @@ body {
     display: none;
 }
 
-/* Label как контейнер для клика */
 .fist-label {
     position: relative;
     width: 20vw;
@@ -1468,7 +1567,6 @@ body {
     display: block;
 }
 
-/* Изображения внутри label */
 .fist-img {
     height: auto;
     display: block;
@@ -1476,64 +1574,53 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* По умолчанию видны только кулаки */
-.fist-closed {
-    display: block;
+/* ============================================
+   ✅ СКРЫТЬ ВСЁ ЛИШНЕЕ ПО УМОЛЧАНИЮ
+   ============================================ */
+
+/* Видны только закрытые кулаки */
+.fist-label .fist-closed {
+    display: block !important;
 }
 
-.fist-open {
-    display: none;
+/* Ладони скрыты по умолчанию */
+.fist-label .fist-open {
+    display: none !important;
 }
 
-/* Подъём вверх */
+/* ============================================
+   ✅ АНИМАЦИЯ ПРИ КЛИКЕ
+   ============================================ */
+
+/* Скрыть кулак при клике */
+#green-fist:checked + .fist-label .fist-closed,
+#yellow-fist:checked + .fist-label .fist-closed,
+#purple-fist:checked + .fist-label .fist-closed {
+    display: none !important;
+}
+
+/* Показать ладонь при клике */
+#green-fist:checked + .fist-label .fist-open,
+#yellow-fist:checked + .fist-label .fist-open,
+#purple-fist:checked + .fist-label .fist-open {
+    display: block !important;
+    transform: none;
+}
+
+/* Подъём кулака при наведении */
 .fist-label:hover .fist-closed {
     transform: translateY(-30px);
-}
-
-/* Показ руки, скрытие кулака */
-.fist-toggle:checked + .fist-label .fist-closed {
-    display: none;
-}
-
-.fist-toggle:checked + .fist-label .fist-open {
-    display: block;
-    transform: none;
 }
 
 .fist-toggle:checked + .fist-label:hover .fist-open {
     transform: none;
 }
 
-/* Яблоки */
-
-.apple {
-    position: absolute;
-    height: auto;
-    display: none;
-    z-index: 30;
-    object-fit: contain;
-}
-
-/* Чистое яблоко у зелёной руки */
-#green-fist:checked + .fist-label .apple-clean {
-    display: block;
-    top: -7vh;
-    right: -5vw;
-}
-
-/* Грязное яблоко у жёлтой руки */
-#yellow-fist:checked + .fist-label .apple-dirty {
-    display: block;
-    top: -5vh;
-    right: -2vw;
-}
-
-/* Грязное яблоко у фиолетовой руки */
-#purple-fist:checked + .fist-label .apple-dirty {
-    display: block;
-    top: -5vh;
-    right: -2vw;
-}
+/* ============================================
+   ✅ УДАЛЕНЫ ВСЕ СТИЛИ ДЛЯ ЯБЛОК
+   ============================================ */
+/* .apple, .apple-clean, .apple-dirty, .apple-green, 
+   .apple-yellow, .apple-purple — всё удалено! */
 
 /* РОЗОВЫЙ БОКС */
 .pink-box {
@@ -1543,7 +1630,7 @@ body {
     display: flex;
     overflow: hidden;
     background-color: transparent;
-    margin-top: -35vh;
+    margin-top: -25vh;
     position: relative;
     z-index: 40;
 }
