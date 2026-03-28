@@ -222,3 +222,19 @@ if (mobilePlus) {
         }
     });
 }
+
+// ============================================
+// КЛИК НА ЗЕЛЁНЫЙ КВАДРАТ - СКРЫТЬ ПЛАШКИ
+// ============================================
+
+const greenSquare = document.querySelector('.rectangle-green-square');
+const overlays = document.querySelectorAll('.rectangle-overlay');
+
+if (greenSquare) {
+    greenSquare.addEventListener('click', () => {
+        // Переключаем класс hidden у всех плашек
+        overlays.forEach(overlay => {
+            overlay.classList.toggle('hidden');
+        });
+    });
+}
