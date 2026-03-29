@@ -3,13 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 @font-face {
-  font-family: 'AlumniSans';
-  src: url('../fonts/Alumni Sans/AlumniSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'AlumniSans';
+    src: url('../fonts/Alumni Sans/AlumniSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
+
 body {
     width: 100%;
     min-height: 100vh;
@@ -29,7 +31,7 @@ body {
 
 /* Желтый бокс */
 .box {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,11 +39,11 @@ body {
 }
 
 .rectangle {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #F7DE1C;
     border: 10px solid #000000;
-    position: relative; 
+    position: relative;
     overflow: hidden;
 }
 
@@ -99,6 +101,7 @@ body {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -211,21 +214,26 @@ body {
     0% {
         opacity: 0;
     }
+
     1% {
         opacity: 1;
     }
+
     24% {
         opacity: 1;
     }
+
     25% {
         opacity: 0;
     }
+
     100% {
         opacity: 0;
     }
 }
 
 @media (max-width: 475px) {
+
     .circle-left,
     .eye-left,
     .eyelid-left,
@@ -234,7 +242,7 @@ body {
     .eyelid-right {
         display: none;
     }
-    
+
     .mouth {
         top: 50%;
         left: 50%;
@@ -242,7 +250,7 @@ body {
         width: 80vw;
         height: 35vh;
     }
-    }
+}
 
 /* ФИОЛЕТОВЫЙ БОКС */
 .purple-box {
@@ -261,18 +269,25 @@ body {
     background-color: #7A59A4;
 }
 
-.purple-box .purple-bg {      /* ← Только для фона */
+.purple-box .purple-bg {
+    /* ← Только для фона */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     min-height: 100vh;
-    display: block;           /* ← было flex */
+    display: block;
+    /* ← было flex */
     object-fit: cover;
     object-position: center;
     z-index: 1;
 }
+
+/* .purple-box img {
+    width: 100%;
+    z-index: 1;
+} */
 
 /* КОНТЕЙНЕР ДЛЯ ЦВЕТНЫХ ЛИЦ */
 .faces-container {
@@ -299,6 +314,7 @@ body {
     gap: 13vw;
     width: 100%;
 }
+
 /* СТРОКА С PLUS */
 .plus-row {
     display: flex;
@@ -309,6 +325,7 @@ body {
     width: 100%;
     transform: translateY(-15vh);
 }
+
 /* ЦВЕТНЫЕ ЛИЦА */
 .face {
     width: auto;
@@ -318,6 +335,7 @@ body {
     display: block;
     flex-shrink: 0;
 }
+
 /* PLUS */
 .plus {
     width: auto;
@@ -327,7 +345,7 @@ body {
     display: block;
     flex-shrink: 0;
     z-index: 6;
-     cursor: pointer;
+    cursor: pointer;
     pointer-events: auto;
     transition: transform 0.1s;
 }
@@ -357,42 +375,49 @@ body {
 }
 
 @media (max-width: 1024px) {
-    
+
     .faces-row .face:last-child {
         display: none;
     }
+
     .plus-row .plus:last-child {
         display: none;
     }
+
     .faces-row {
         gap: 18vw;
     }
+
     .plus-row {
         gap: 30vw;
     }
 }
 
 @media (max-width: 768px) {
-    
+
     .faces-row .face:nth-last-child(2) {
         display: none;
     }
+
     .plus-row .plus:nth-last-child(2) {
         display: none;
     }
+
     .faces-row {
         gap: 25vw;
     }
+
     .plus-row {
         gap: 35vw;
     }
 }
 
 @media (max-width: 475px) {
-    
+
     .faces-container {
         display: none;
     }
+
     .faces-mobile {
         display: flex;
         flex-direction: column;
@@ -404,6 +429,7 @@ body {
         transform: translateX(-50%);
         z-index: 5;
     }
+
     .faces-mobile-img {
         width: auto;
         height: auto;
@@ -411,6 +437,7 @@ body {
         object-fit: contain;
         display: block;
     }
+
     .faces-mobile-plus {
         position: absolute;
         top: 95%;
@@ -425,18 +452,22 @@ body {
         cursor: pointer;
         pointer-events: auto;
     }
+
     .money-img {
         top: 45%;
         max-height: 20vh;
     }
+
     .purple-text {
         font-size: 32px;
         top: 12vh;
         left: 3vw;
     }
+
     .title-purple {
         font-size: 80px;
     }
+
     .logo-bg-purple {
         width: 40vw;
         height: 15vh;
@@ -466,7 +497,7 @@ body {
     height: 100%;
     min-height: 100vh;
     display: flex;
-    object-fit: contain; 
+    object-fit: contain;
     object-position: center;
 }
 
@@ -616,7 +647,7 @@ body {
 
 /* Левое ухо */
 .rectangle-pink .rectangle-ear-left {
-    left: 5%; 
+    left: 5%;
 }
 
 /* Правое ухо  */
@@ -746,7 +777,7 @@ body {
     height: 33vh;
     border: 0.5vw solid #000000;
     margin: 0;
-    position: relative; 
+    position: relative;
     overflow: hidden;
 }
 
@@ -985,7 +1016,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;  
+    z-index: 1;
 }
 
 .rectangle-light-blue-top .rectangle-inner {
@@ -1041,6 +1072,7 @@ body {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -1106,7 +1138,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    pointer-events: auto;  
+    pointer-events: auto;
 }
 
 /* ============================================
@@ -1114,57 +1146,59 @@ body {
    ============================================ */
 
 @media (max-width: 1280px) {
+
     /* ЗЕЛЕНЫЙ БОКС */
     .green-box {
         min-height: 180vh !important;
     }
-    
+
     /* Фоновое изображение тоже растягиваем */
     .green-box .green-bg {
         min-height: 180vh !important;
         height: auto !important;
     }
+
     /* Левый и правый боксы - по 50% экрана */
     .left-column {
         width: 50vw !important;
         left: 0 !important;
     }
-    
+
     .right-column {
         width: 50vw !important;
         right: 0 !important;
     }
-    
-    
+
+
 
     /* ============================================
        ЛЕВЫЙ БОКС - РАСТЯНУТЬ ПРЯМОУГОЛЬНИКИ ✅
        ============================================ */
-    
+
     /* Вертикальные прямоугольники (красный + фиолетовый) */
     .rectangle-red {
         height: 52vh;
     }
-    
+
     .rectangle-purple {
         height: 52vh;
     }
-    
+
     /* Горизонтальные прямоугольники (розовый + жёлтый) */
     .rectangle-pink {
         height: 25vh;
     }
-    
+
     .rectangle-yellow {
         height: 30vh;
     }
-    
+
     /* Желтые глаза (жёлтый прямоугольник) */
     .rectangle-yellow .rectangle-eye-yellow {
         max-width: 10vw;
         max-height: 10vh;
     }
-    
+
     /* Рот (жёлтый прямоугольник) */
     .rectangle-yellow .rectangle-mouth {
         max-width: 18vw;
@@ -1175,50 +1209,50 @@ body {
     .rectangle-pink-full {
         display: none;
     }
-    
+
     .right-column-right {
         display: none;
     }
-    
+
     .right-column-left {
         width: 100%;
     }
-    
+
     /* Растягиваем голубой и зелёный */
     .rectangle-light-blue-top {
         width: 100%;
         height: 35vh;
     }
-    
+
     .rectangle-green-square {
         width: 100%;
         height: 55vh;
     }
-    
+
     /* Увеличиваем содержимое */
     .rectangle-light-blue-top .rectangle-eye-blue {
         max-width: 10vw;
         max-height: 10vh;
     }
-    
+
     .rectangle-light-blue-top .rectangle-mouth-blue {
         top: 60%;
         max-width: 22vw;
         max-height: 22vh;
     }
-    
+
     .rectangle-green-square .rectangle-white-oval {
         top: 25%;
         max-width: 15vw;
         max-height: 15vh;
     }
-    
+
     .rectangle-green-square .rectangle-green-pupil {
         top: 25%;
         max-width: 7vw;
         max-height: 7vh;
     }
-    
+
     .rectangle-green-square .rectangle-nose {
         top: 55%;
         max-width: 16vw;
@@ -1232,24 +1266,25 @@ body {
 }
 
 @media (max-width: 1024px) {
-    
+
     /* ============================================
        ЗЕЛЁНЫЙ БОКС
        ============================================ */
-    
+
     .green-box {
-        min-height: 220vh;              /* ✅ Ещё выше для двух колонок */
+        min-height: 220vh;
+        /* ✅ Ещё выше для двух колонок */
     }
-    
+
     .green-box .green-bg {
         min-height: 220vh;
         height: auto;
     }
-    
+
     /* ============================================
        ПРАВЫЙ БОКС - СВЕРХУ НА ВСЮ ШИРИНУ ✅
        ============================================ */
-    
+
     .right-column {
         display: flex;
         flex-direction: column;
@@ -1258,179 +1293,183 @@ body {
         right: 0;
         margin: 0 auto;
         position: absolute;
-        top: 45vh;                      /* ✅ Позиция сверху */
+        top: 45vh;
+        /* ✅ Позиция сверху */
         gap: 0;
     }
-    
+
     .right-column-top {
         display: flex;
-        flex-direction: row;         /* ✅ Горизонтально */
+        flex-direction: row;
+        /* ✅ Горизонтально */
         width: 100%;
         gap: 0;
-        justify-content: center; 
+        justify-content: center;
     }
-    
+
     .right-column-left {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 0;
     }
-    
+
     .right-column-right {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 0;
     }
-    
+
     /* ✅ Скрыть нижний узкий голубой */
     .right-column-bottom {
         display: none;
     }
-    
+
     /* ============================================
        ПРЯМОУГОЛЬНИКИ ПРАВОГО БОКСА - 100% ШИРИНЫ
        ============================================ */
-    
+
     /* Розовый вертикальный */
     .rectangle-pink-full {
         display: block;
         width: 100%;
         height: 80vh;
     }
-    
+
     /* Голубой прямоугольник */
     .rectangle-light-blue-top {
         display: block;
         width: 100%;
         height: 40vh;
     }
-    
+
     /* Зелёный квадрат */
     .rectangle-green-square {
         display: block;
         width: 100%;
         height: 40vh;
     }
-    
+
     /* ============================================
        ЛЕВЫЙ БОКС - СНИЗУ НА ВСЮ ШИРИНУ ✅
        ============================================ */
-    
+
     .left-column {
         width: 100vw !important;
         left: 0;
         right: 0;
-        margin: 0 auto; 
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         position: absolute;
-        top: 120vh;                     /* ✅ ПОД правым боксом */
+        top: 120vh;
+        /* ✅ ПОД правым боксом */
     }
-    
+
     /* ============================================
        СКРЫТЬ ЛИШНИЕ ПРЯМОУГОЛЬНИКИ ЛЕВОГО БОКСА
        ============================================ */
-    
+
     .rectangle-red {
         display: none;
     }
-    
+
     .rectangle-purple {
         display: none;
     }
-    
+
     .rectangle-pink {
         display: none;
     }
-    
+
     /* ✅ Оставить только жёлтый */
     .rectangle-yellow {
         display: block;
         width: 100%;
         height: 40vh;
     }
-    
+
     /* ============================================
        СОДЕРЖИМОЕ ПРЯМОУГОЛЬНИКОВ
        ============================================ */
-    
+
     /* Розовый вертикальный (глаза + нос) */
     .rectangle-pink-full .rectangle-eye-pink {
         max-width: 12vw;
         max-height: 12vh;
     }
-    
+
     .rectangle-pink-full .rectangle-nose-red {
         max-width: 20vw;
         max-height: 20vh;
     }
-    
+
     /* Голубой прямоугольник (глаза + рот) */
     .rectangle-light-blue-top .rectangle-eye-blue {
         max-width: 12vw;
         max-height: 12vh;
     }
-    
+
     .rectangle-light-blue-top .rectangle-mouth-blue {
         top: 70%;
         max-width: 28vw;
         max-height: 28vh;
     }
-    
+
     /* Зелёный квадрат (глаза + нос) */
     .rectangle-green-square .rectangle-white-oval {
         top: 35%;
         max-width: 14vw;
         max-height: 14vh;
     }
-    
+
     .rectangle-green-square .rectangle-green-pupil {
         top: 35%;
         max-width: 6vw;
         max-height: 6vh;
     }
-    
+
     .rectangle-green-square .rectangle-nose {
         top: 55%;
         max-width: 17vw;
         max-height: 17vh;
     }
-    
+
     /* Жёлтый прямоугольник (глаза + рот) */
     .rectangle-yellow .rectangle-eye-yellow {
         max-width: 14vw;
         max-height: 14vh;
     }
-    
+
     .rectangle-yellow .rectangle-mouth {
         max-width: 35vw;
         max-height: 35vh;
     }
-    
+
     /* ГОЛУБОЙ БОКС */
-    
+
     .blue-box {
         min-height: 150vh;
         margin-top: -10vh;
     }
 
- .blue-box img {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    object-fit: contain;
-    object-position: center;
-}
+    .blue-box img {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        display: flex;
+        object-fit: contain;
+        object-position: center;
+    }
 
     /* Контейнер для кулаков - ВЕРТИКАЛЬНО И НИЖЕ ✅ */
     .fists-container {
         position: absolute;
-        top: 100vh;                   /* ✅ Было 80vh, стало 100vh (ещё ниже) */
+        top: 100vh;
+        /* ✅ Было 80vh, стало 100vh (ещё ниже) */
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -1441,7 +1480,7 @@ body {
         z-index: 25;
         width: 40vw;
     }
-    
+
     /* Label */
     .fist-label {
         position: relative;
@@ -1450,11 +1489,11 @@ body {
         cursor: pointer;
         display: block;
     }
-    
+
     /* ============================================
        СКРЫТЬ ВСЕ ЛИШНИЕ ФОТО ✅
        ============================================ */
-    
+
     /* Все кулаки и ладони */
     .fist-img {
         height: auto;
@@ -1463,35 +1502,35 @@ body {
         transition: transform 0.3s ease;
         max-width: 100%;
     }
-    
+
     /* ✅ По умолчанию видны ТОЛЬКО закрытые кулаки */
     .fist-closed {
         display: block !important;
     }
-    
+
     /* ✅ Открытые ладони скрыты */
     .fist-open {
         display: none !important;
     }
-    
+
     /* ✅ Все яблоки скрыты */
     .apple {
         display: none !important;
     }
-    
+
     /* ============================================
        АНИМАЦИЯ ПРИ КЛИКЕ ✅
        ============================================ */
-    
+
     /* При клике: скрыть кулак, показать ладонь */
-    .fist-toggle:checked + .fist-label .fist-closed {
+    .fist-toggle:checked+.fist-label .fist-closed {
         display: none !important;
     }
-    
-    .fist-toggle:checked + .fist-label .fist-open {
+
+    .fist-toggle:checked+.fist-label .fist-open {
         display: block !important;
     }
-    
+
     .pink-box {
         margin-top: -10vh !important;
     }
@@ -1518,7 +1557,7 @@ body {
 }
 
 /* Фоновое изображение */
- .blue-box img {
+.blue-box img {
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -1593,16 +1632,16 @@ body {
    ============================================ */
 
 /* Скрыть кулак при клике */
-#green-fist:checked + .fist-label .fist-closed,
-#yellow-fist:checked + .fist-label .fist-closed,
-#purple-fist:checked + .fist-label .fist-closed {
+#green-fist:checked+.fist-label .fist-closed,
+#yellow-fist:checked+.fist-label .fist-closed,
+#purple-fist:checked+.fist-label .fist-closed {
     display: none !important;
 }
 
 /* Показать ладонь при клике */
-#green-fist:checked + .fist-label .fist-open,
-#yellow-fist:checked + .fist-label .fist-open,
-#purple-fist:checked + .fist-label .fist-open {
+#green-fist:checked+.fist-label .fist-open,
+#yellow-fist:checked+.fist-label .fist-open,
+#purple-fist:checked+.fist-label .fist-open {
     display: block !important;
     transform: none;
 }
@@ -1612,12 +1651,12 @@ body {
     transform: translateY(-30px);
 }
 
-.fist-toggle:checked + .fist-label:hover .fist-open {
+.fist-toggle:checked+.fist-label:hover .fist-open {
     transform: none;
 }
 
 /* ============================================
-   ✅ УДАЛЕНЫ ВСЕ СТИЛИ ДЛЯ ЯБЛОК
+    УДАЛЕНЫ ВСЕ СТИЛИ ДЛЯ ЯБЛОК
    ============================================ */
 /* .apple, .apple-clean, .apple-dirty, .apple-green, 
    .apple-yellow, .apple-purple — всё удалено! */
@@ -1634,6 +1673,7 @@ body {
     position: relative;
     z-index: 40;
 }
+
 /* АКСЕССУАРЫ - общие стили */
 .accessory {
     position: absolute;
@@ -1675,7 +1715,7 @@ body {
 }
 
 /* Кнопка */
-.pink-button-left  {
+.pink-button-left {
     position: absolute;
     top: 45%;
     left: 5vw;
@@ -1727,6 +1767,7 @@ body {
     text-align: center;
     white-space: nowrap;
 }
+
 /* ФОТО FACE ПО ЦЕНТРУ */
 .pink-box .pink-face {
     position: absolute;
@@ -1743,6 +1784,7 @@ body {
 .logo-bg-pink {
     background-color: #FF8CBD;
 }
+
 .pink-box img {
     width: 100%;
     height: 100%;
@@ -1760,7 +1802,7 @@ body {
     display: block;
     overflow: hidden;
     background-color: transparent;
-    margin-top: -65vh;
+    margin-top: -100vh;
     position: relative;
     z-index: 50;
 }
@@ -1769,13 +1811,13 @@ body {
     background-color: #2B50AA;
 }
 
-/* ✅ ИСПРАВЛЕНО: Фоновое изображение */
+/* Фоновое изображение */
 .dark-blue-box .dark-blue-bg {
     position: absolute;
-    top: 50%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
+    width: 100%;
     height: auto;
     max-width: 100%;
     max-height: 100vh;
@@ -1788,7 +1830,7 @@ body {
 /* Логотип */
 .dark-blue-logo {
     position: absolute;
-    top: 3vh;
+    top: 87vh;
     left: 5vw;
     width: 10vw;
     height: auto;
@@ -1802,11 +1844,20 @@ body {
 .logo-bg-purple,
 .logo-bg-green,
 .logo-bg-blue,
-.logo-bg-pink,
+.logo-bg-pink {
+    position: absolute;
+    display: block;
+    top: 15vh;
+    left: 0vw;
+    width: 30vw;
+    height: 23vh;
+    z-index: 30;
+}
+
 .logo-bg-dark-blue {
     position: absolute;
     display: block;
-    top: 20vh;
+    top: 80vh;
     left: 0vw;
     width: 30vw;
     height: 23vh;
@@ -1834,10 +1885,19 @@ body {
 .marquee-container-purple,
 .marquee-container-green,
 .marquee-container-blue,
-.marquee-container-pink,
-.marquee-container-dark-blue {
+.marquee-container-pink {
     position: absolute;
     top: 20vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 29;
+    pointer-events: none;
+}
+
+.marquee-container-dark-blue {
+    position: absolute;
+    top: 84vh;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -1873,12 +1933,31 @@ body {
 }
 
 @keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-.purple-box { z-index: 10; }
-.green-box { z-index: 20; }
-.blue-box { z-index: 30; }
-.pink-box { z-index: 40; }
-.dark-blue-box { z-index: 50; }
+.purple-box {
+    z-index: 10;
+}
+
+.green-box {
+    z-index: 20;
+}
+
+.blue-box {
+    z-index: 30;
+}
+
+.pink-box {
+    z-index: 40;
+}
+
+.dark-blue-box {
+    z-index: 50;
+}

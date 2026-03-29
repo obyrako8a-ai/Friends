@@ -57,65 +57,66 @@ function moveEye(eye, cursorX, cursorY, side) {
 }
 
 // ============================================
-// АКСЕССУАРЫ - ДИНАМИЧЕСКОЕ СОЗДАНИЕ
+// АКСЕССУАРЫ - СМЕНА ПО ПОРЯДКУ ЧЕРЕЗ JS ✅
 // ============================================
 
-const accessoryBtn = document.getElementById('accessoryBtn');
-const accessoriesContainer = document.getElementById('accessories-container');
-
-// Список аксессуаров
-const accessoryList = [
-    { class: 'accessory-hat', src: 'images/blue_hat.svg', alt: 'Hat' },
-    { class: 'accessory-glasses', src: 'images/blue_glasses.svg', alt: 'Glasses' },
-    { class: 'accessory-headphones', src: 'images/blue_headphones.svg', alt: 'Headphones' },
-    { class: 'accessory-tie', src: 'images/blue_tie.svg', alt: 'Tie' }
-];
-
-// Текущий аксессуар
-let currentAccessory = null;
-
-// Функция создания аксессуара
-function createAccessory(accessory) {
-    const img = document.createElement('img');
-    img.src = accessory.src;
-    img.alt = accessory.alt;
-    img.className = `accessory ${accessory.class}`;
-    // ✅ Inline style переопределит CSS display: none
-    img.style.display = 'block';
-    return img;
-}
-
-// Функция показа случайного аксессуара
-function showRandomAccessory() {
-    // Удаляем текущий аксессуар
-    if (currentAccessory && currentAccessory.element) {
-        currentAccessory.element.remove();
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const accessoryBtn = document.getElementById('accessoryBtn');
+    const accessoriesContainer = document.getElementById('accessories-container');
+    
+    // Список аксессуаров (создаются только при клике)
+    const accessoryList = [
+        { class: 'accessory-hat', src: 'images/blue_hat.svg', alt: 'Hat' },
+        { class: 'accessory-glasses', src: 'images/blue_glasses.svg', alt: 'Glasses' },
+        { class: 'accessory-headphones', src: 'images/blue_headphones.svg', alt: 'Headphones' },
+        { class: 'accessory-tie', src: 'images/blue_tie.svg', alt: 'Tie' }
+    ];
+    
+    let currentIndex = 0;
+    let currentElement = null;
+    
+    // Функция показа следующего аксессуара
+    function showNextAccessory() {
+        // ✅ Удаляем предыдущий аксессуар (если есть)
+        if (currentElement) {
+            currentElement.remove();
+            currentElement = null;
+        }
+        
+        // ✅ Берём следующий аксессуар по порядку
+        const accessory = accessoryList[currentIndex];
+        
+        // ✅ Создаём новый элемент
+        const img = document.createElement('img');
+        img.src = accessory.src;
+        img.alt = accessory.alt;
+        img.className = `accessory ${accessory.class} active`;
+        
+        // ✅ Добавляем в контейнер
+        accessoriesContainer.appendChild(img);
+        
+        // ✅ Сохраняем ссылку
+        currentElement = img;
+        
+        // ✅ Переходим к следующему (по кругу)
+        currentIndex = (currentIndex + 1) % accessoryList.length;
+        
+        console.log('Показан аксессуар:', currentIndex, 'из', accessoryList.length);
     }
     
-    // Выбираем случайный аксессуар
-    let newAccessory;
-    do {
-        const randomIndex = Math.floor(Math.random() * accessoryList.length);
-        newAccessory = accessoryList[randomIndex];
-    } while (currentAccessory && newAccessory.class === currentAccessory.class);
+    // ✅ Обработчик клика
+    if (accessoryBtn) {
+        accessoryBtn.addEventListener('click', showNextAccessory);
+        console.log('✅ Кнопка найдена, обработчик подключён');
+    } else {
+        console.warn('❌ Кнопка #accessoryBtn не найдена!');
+    }
     
-    // Создаём и добавляем новый аксессуар
-    const newElement = createAccessory(newAccessory);
-    accessoriesContainer.appendChild(newElement);
-    
-    // Сохраняем ссылку на текущий
-    currentAccessory = {
-        class: newAccessory.class,
-        element: newElement
-    };
-}
-
-// Обработчик клика
-if (accessoryBtn) {
-    accessoryBtn.addEventListener('click', showRandomAccessory);
-} else {
-    console.warn('Кнопка #accessoryBtn не найдена!');
-}
+    // ✅ Проверка при загрузке
+    console.log('Аксессуаров в списке:', accessoryList.length);
+    console.log('Контейнер найден:', accessoriesContainer !== null);
+});
 
 // ============================================
 // MONEY - ВСЕГДА УБЕГАЕТ ОТ КУРСОРА
