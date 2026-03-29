@@ -1,7 +1,4 @@
-// ============================================
 // Бегущая строка
-// ============================================
-
 
 const marqueeContent = document.getElementById('marqueeContent');
 
@@ -23,9 +20,8 @@ if (marqueeContentPurple) {
     const content = marqueeContentPurple.innerHTML;
     marqueeContentPurple.innerHTML = content + content;
 }
-// ============================================
+
 // Слежка глаз за курсором
-// ============================================
 
 const eyeLeft = document.querySelector('.eye-left');
 const eyeRight = document.querySelector('.eye-right');
@@ -56,26 +52,25 @@ function moveEye(eye, cursorX, cursorY, side) {
     eye.style.transform = `${baseTransform} translate(${moveX}px, ${moveY}px)`;
 }
 
-// ============================================
-// АКСЕССУАРЫ - ЧЕРЕЗ JAVASCRIPT
-// ============================================
+
+// Аксессуары
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('✅ DOM загружен');
+    console.log('DOM загружен');
     
     const accessoryBtn = document.getElementById('accessoryBtn');
     const accessoriesContainer = document.getElementById('accessories-container');
     
-    console.log('🔘 Кнопка:', accessoryBtn);
-    console.log('📦 Контейнер:', accessoriesContainer);
+    console.log('Кнопка:', accessoryBtn);
+    console.log('Контейнер:', accessoriesContainer);
     
     if (!accessoryBtn) {
-        console.error('❌ Кнопка #accessoryBtn не найдена!');
+        console.error('Кнопка #accessoryBtn не найдена');
         return;
     }
     
     if (!accessoriesContainer) {
-        console.error('❌ Контейнер #accessories-container не найден!');
+        console.error('Контейнер #accessories-container не найден');
         return;
     }
     
@@ -90,12 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentElement = null;
     
     function showNextAccessory() {
-        console.log('🖱️ КЛИК НА КНОПКУ!');
+        console.log('Клик на кнопку');
         
         if (currentElement) {
             currentElement.remove();
             currentElement = null;
-            console.log('🗑️ Предыдущий аксессуар удалён');
+            console.log('Предыдущий аксессуар удалён');
         }
         
         const accessory = accessoryList[currentIndex];
@@ -108,32 +103,28 @@ document.addEventListener('DOMContentLoaded', () => {
         currentElement = img;
         currentIndex = (currentIndex + 1) % accessoryList.length;
         
-        console.log('✅ Показан:', accessory.class);
-        console.log('📊 Следующий индекс:', currentIndex);
+        console.log('Показан:', accessory.class);
+        console.log('Следующий индекс:', currentIndex);
     }
     
-    // ✅ Добавляем обработчик
     accessoryBtn.addEventListener('click', showNextAccessory);
-    console.log('✅ Обработчик клика подключён');
+    console.log('Обработчик клика подключён');
     
-    // ✅ Тест: проверка что кнопка кликабельна
     accessoryBtn.addEventListener('mousedown', () => {
-        console.log('🖱️ mousedown сработал!');
+        console.log('mousedown сработал');
     });
 });
 
 
-// ============================================
-// MONEY - ВСЕГДА УБЕГАЕТ ОТ КУРСОРА
-// ============================================
+// Купюра убегает
 
 const moneyImg = document.querySelector('.money-img');
 
 if (moneyImg) {
-    // Минимальное расстояние между курсором и money (в пикселях)
+    // Минимальное расстояние между курсором и купюрой
     const minDistance = 300;
     
-    // Максимальное смещение от центра (в пикселях)
+    // Максимальное смещение от центра
     const maxOffset = 400;
     
     // Отслеживаем движение мыши
@@ -142,40 +133,32 @@ if (moneyImg) {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         
-        // Получаем координаты центра экрана (где находится money)
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
         
-        // Вычисляем вектор от курсора к центру
         const deltaX = centerX - mouseX;
         const deltaY = centerY - mouseY;
         
-        // Вычисляем расстояние от курсора до центра
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
         
-        // Если курсор ближе чем minDistance - money убегает
         if (distance < minDistance) {
-            // Нормализуем вектор направления
+
             const normalizedX = deltaX / distance;
             const normalizedY = deltaY / distance;
             
-            // Вычисляем смещение (чем ближе курсор, тем сильнее убегает)
             const escapeRatio = (minDistance - distance) / minDistance;
             const moveX = normalizedX * maxOffset * escapeRatio;
             const moveY = normalizedY * maxOffset * escapeRatio;
             
-            // Двигаем money в противоположную сторону от курсора
             moneyImg.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
         } else {
-            // Если курсор далеко - money возвращается в центр
+
             moneyImg.style.transform = `translate(-50%, -50%)`;
         }
     });
 }
 
-// ============================================
-// PLUS → CHECK_MARK ПРИ КЛИКЕ
-// ============================================
+// Добавление в друзья, кнопки PLUS
 
 const plusImages = document.querySelectorAll('.plus');
 
@@ -186,18 +169,17 @@ plusImages.forEach(plus => {
             plus.src = 'images/check_mark.svg';
             plus.alt = 'Check Mark';
         } else {
-            // Можно вернуть back to plus при повторном клике (опционально)
+
             plus.src = 'images/plus.svg';
             plus.alt = 'Plus';
         }
     });
     
-    // Добавляем курсор pointer для кликабельности
     plus.style.cursor = 'pointer';
     plus.style.pointerEvents = 'auto';
 });
 
-// PLUS для мобильной версии (475px)
+// PLUS для версии 475px
 const mobilePlus = document.querySelector('.faces-mobile-plus');
 
 if (mobilePlus) {
@@ -210,16 +192,13 @@ if (mobilePlus) {
     });
 }
 
-// ============================================
-// КЛИК НА ЗЕЛЁНЫЙ КВАДРАТ - СКРЫТЬ ПЛАШКИ
-// ============================================
-
+// Клик на одного друга
 const greenSquare = document.querySelector('.rectangle-green-square');
 const overlays = document.querySelectorAll('.rectangle-overlay');
 
 if (greenSquare) {
     greenSquare.addEventListener('click', () => {
-        // Переключаем класс hidden у всех плашек
+
         overlays.forEach(overlay => {
             overlay.classList.toggle('hidden');
         });

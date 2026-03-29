@@ -29,7 +29,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Желтый бокс */
+/* ЖЕЛТЫЙ БОКС */
 .box {
     width: 100%;
     height: 100vh;
@@ -96,7 +96,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Анимация бегущей строки */
 @keyframes scrollLeft {
     0% {
         transform: translateX(0);
@@ -188,7 +187,7 @@ body {
 }
 
 
-/* Анимация для каждого состояния рта */
+/* Анимация для рта */
 .mouth-closed {
     animation: mouthCycle 2s infinite;
     animation-delay: 0s;
@@ -270,7 +269,6 @@ body {
 }
 
 .purple-box .purple-bg {
-    /* ← Только для фона */
     position: absolute;
     top: 0;
     left: 0;
@@ -278,18 +276,13 @@ body {
     height: 100%;
     min-height: 100vh;
     display: block;
-    /* ← было flex */
     object-fit: cover;
     object-position: center;
     z-index: 1;
 }
 
-/* .purple-box img {
-    width: 100%;
-    z-index: 1;
-} */
 
-/* КОНТЕЙНЕР ДЛЯ ЦВЕТНЫХ ЛИЦ */
+/* Контейнер для цв лиц */
 .faces-container {
     position: absolute;
     top: 60%;
@@ -305,7 +298,7 @@ body {
     width: 100%;
 }
 
-/* СТРОКА С ЛИЦАМИ */
+/* строка с лицами */
 .faces-row {
     display: flex;
     flex-direction: row;
@@ -315,7 +308,7 @@ body {
     width: 100%;
 }
 
-/* СТРОКА С PLUS */
+/* строка с PLUS */
 .plus-row {
     display: flex;
     flex-direction: row;
@@ -326,7 +319,7 @@ body {
     transform: translateY(-15vh);
 }
 
-/* ЦВЕТНЫЕ ЛИЦА */
+/* Цыетные лица */
 .face {
     width: auto;
     height: auto;
@@ -354,7 +347,6 @@ body {
     transform: scale(0.9);
 }
 
-/* ФОТО MONEY ПО ЦЕНТРУ */
 .money-img {
     position: absolute;
     top: 55%;
@@ -501,7 +493,7 @@ body {
     object-position: center;
 }
 
-/* Большой контейнер - размещаем НИЖЕ */
+/* Большой контейнер */
 .rectangles-container {
     position: absolute;
     top: 45vh;
@@ -1097,7 +1089,7 @@ body {
     opacity: 0;
 }
 
-/* Носы, рога, уши, рты (кроме глаз) */
+/* Носы, рога, уши, рты */
 .rectangle-nose-green,
 .rectangle-horns,
 .rectangle-ear,
@@ -1111,7 +1103,7 @@ body {
     z-index: 10;
 }
 
-/* Все глаза (самый верхний слой) */
+/* Все глаза */
 .rectangle-eyes,
 .rectangle-eyes-purple,
 .rectangle-eye-yellow,
@@ -1133,17 +1125,13 @@ body {
     overflow: hidden;
 }
 
-/* Зеленый квадрат (БЕЗ черной плашки) */
+/* Зеленый квадрат */
 .rectangle-green-square {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     pointer-events: auto;
 }
-
-/* ============================================
-   АДАПТИВ ДЛЯ 1280PX - ЗЕЛЁНЫЙ БОКС
-   ============================================ */
 
 @media (max-width: 1280px) {
 
@@ -1152,13 +1140,11 @@ body {
         min-height: 180vh !important;
     }
 
-    /* Фоновое изображение тоже растягиваем */
     .green-box .green-bg {
         min-height: 180vh !important;
         height: auto !important;
     }
 
-    /* Левый и правый боксы - по 50% экрана */
     .left-column {
         width: 50vw !important;
         left: 0 !important;
@@ -1169,12 +1155,7 @@ body {
         right: 0 !important;
     }
 
-
-
-    /* ============================================
-       ЛЕВЫЙ БОКС - РАСТЯНУТЬ ПРЯМОУГОЛЬНИКИ ✅
-       ============================================ */
-
+    /* Левый бокс */
     /* Вертикальные прямоугольники (красный + фиолетовый) */
     .rectangle-red {
         height: 52vh;
@@ -1205,7 +1186,6 @@ body {
         max-height: 187vh;
     }
 
-    /* Скрываем розовый прямоугольник */
     .rectangle-pink-full {
         display: none;
     }
@@ -1218,7 +1198,6 @@ body {
         width: 100%;
     }
 
-    /* Растягиваем голубой и зелёный */
     .rectangle-light-blue-top {
         width: 100%;
         height: 35vh;
@@ -1228,8 +1207,7 @@ body {
         width: 100%;
         height: 55vh;
     }
-
-    /* Увеличиваем содержимое */
+    
     .rectangle-light-blue-top .rectangle-eye-blue {
         max-width: 10vw;
         max-height: 10vh;
@@ -1268,23 +1246,15 @@ body {
 
 @media (max-width: 1024px) {
 
-    /* ============================================
-       ЗЕЛЁНЫЙ БОКС
-       ============================================ */
 
     .green-box {
         min-height: 220vh;
-        /* ✅ Ещё выше для двух колонок */
     }
 
     .green-box .green-bg {
         min-height: 220vh;
         height: auto;
     }
-
-    /* ============================================
-       ПРАВЫЙ БОКС - СВЕРХУ НА ВСЮ ШИРИНУ ✅
-       ============================================ */
 
     .right-column {
         display: flex;
@@ -1295,14 +1265,12 @@ body {
         margin: 0 auto;
         position: absolute;
         top: 45vh;
-        /* ✅ Позиция сверху */
         gap: 0;
     }
 
     .right-column-top {
         display: flex;
         flex-direction: row;
-        /* ✅ Горизонтально */
         width: 100%;
         gap: 0;
         justify-content: center;
@@ -1322,14 +1290,10 @@ body {
         gap: 0;
     }
 
-    /* ✅ Скрыть нижний узкий голубой */
     .right-column-bottom {
         display: none;
     }
 
-    /* ============================================
-       ПРЯМОУГОЛЬНИКИ ПРАВОГО БОКСА - 100% ШИРИНЫ
-       ============================================ */
 
     /* Розовый вертикальный */
     .rectangle-pink-full {
@@ -1352,10 +1316,6 @@ body {
         height: 40vh;
     }
 
-    /* ============================================
-       ЛЕВЫЙ БОКС - СНИЗУ НА ВСЮ ШИРИНУ ✅
-       ============================================ */
-
     .left-column {
         width: 100vw !important;
         left: 0;
@@ -1367,12 +1327,7 @@ body {
         gap: 0;
         position: absolute;
         top: 120vh;
-        /* ✅ ПОД правым боксом */
     }
-
-    /* ============================================
-       СКРЫТЬ ЛИШНИЕ ПРЯМОУГОЛЬНИКИ ЛЕВОГО БОКСА
-       ============================================ */
 
     .rectangle-red {
         display: none;
@@ -1386,16 +1341,11 @@ body {
         display: none;
     }
 
-    /* ✅ Оставить только жёлтый */
     .rectangle-yellow {
         display: block;
         width: 100%;
         height: 40vh;
     }
-
-    /* ============================================
-       СОДЕРЖИМОЕ ПРЯМОУГОЛЬНИКОВ
-       ============================================ */
 
     /* Розовый вертикальный (глаза + нос) */
     .rectangle-pink-full .rectangle-eye-pink {
@@ -1451,7 +1401,6 @@ body {
     }
 
     /* ГОЛУБОЙ БОКС */
-
     .blue-box {
         min-height: 150vh;
         margin-top: -10vh;
@@ -1466,11 +1415,9 @@ body {
         object-position: center;
     }
 
-    /* Контейнер для кулаков - ВЕРТИКАЛЬНО И НИЖЕ ✅ */
     .fists-container {
         position: absolute;
         top: 100vh;
-        /* ✅ Было 80vh, стало 100vh (ещё ниже) */
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -1482,7 +1429,6 @@ body {
         width: 40vw;
     }
 
-    /* Label */
     .fist-label {
         position: relative;
         width: 30vw;
@@ -1490,10 +1436,6 @@ body {
         cursor: pointer;
         display: block;
     }
-
-    /* ============================================
-       СКРЫТЬ ВСЕ ЛИШНИЕ ФОТО ✅
-       ============================================ */
 
     /* Все кулаки и ладони */
     .fist-img {
@@ -1504,26 +1446,18 @@ body {
         max-width: 100%;
     }
 
-    /* ✅ По умолчанию видны ТОЛЬКО закрытые кулаки */
     .fist-closed {
         display: block !important;
     }
 
-    /* ✅ Открытые ладони скрыты */
     .fist-open {
         display: none !important;
     }
 
-    /* ✅ Все яблоки скрыты */
     .apple {
         display: none !important;
     }
 
-    /* ============================================
-       АНИМАЦИЯ ПРИ КЛИКЕ ✅
-       ============================================ */
-
-    /* При клике: скрыть кулак, показать ладонь */
     .fist-toggle:checked+.fist-label .fist-closed {
         display: none !important;
     }
@@ -1537,10 +1471,7 @@ body {
     }
 }
 
-/* ============================================
-   ГОЛУБОЙ БОКС - БАЗОВЫЕ СТИЛИ
-   ============================================ */
-
+/* ГОЛУБОЙ БОКС*/
 .blue-box {
     width: 100%;
     min-height: 100vh;
@@ -1578,10 +1509,7 @@ body {
     z-index: 25;
 }
 
-/* ============================================
-   КОНТЕЙНЕР ДЛЯ КУЛАКОВ
-   ============================================ */
-
+/* Контейнер для кулаков */
 .fists-container {
     position: absolute;
     top: 85vh;
@@ -1614,23 +1542,13 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* ============================================
-   ✅ СКРЫТЬ ВСЁ ЛИШНЕЕ ПО УМОЛЧАНИЮ
-   ============================================ */
-
-/* Видны только закрытые кулаки */
 .fist-label .fist-closed {
     display: block !important;
 }
 
-/* Ладони скрыты по умолчанию */
 .fist-label .fist-open {
     display: none !important;
 }
-
-/* ============================================
-   ✅ АНИМАЦИЯ ПРИ КЛИКЕ
-   ============================================ */
 
 /* Скрыть кулак при клике */
 #green-fist:checked+.fist-label .fist-closed,
@@ -1669,7 +1587,7 @@ body {
     z-index: 40;
 }
 
-/* АКСЕССУАРЫ - общие стили */
+/* Акскссуары общие стили */
 .accessory {
     position: absolute;
     max-width: 30%;
@@ -1681,28 +1599,28 @@ body {
     pointer-events: none;
 }
 
-/* ШЛЯПА */
+/* Шляпа */
 .accessory-hat {
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* ОЧКИ */
+/* Очки */
 .accessory-glasses {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* НАУШНИКИ  */
+/* Наушники */
 .accessory-headphones {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* ГАЛСТУК */
+/* Галстук */
 .accessory-tie {
     top: 65%;
     left: 50%;
@@ -1752,7 +1670,7 @@ body {
     transition: transform 0.1s;
 }
 
-/* ТЕКСТ ВНУТРИ КНОПКИ */
+/* Текст в кнопке */
 .pink-button-left span,
 .pink-button-right span {
     font-family: 'AlumniSans', sans-serif;
@@ -1763,7 +1681,6 @@ body {
     white-space: nowrap;
 }
 
-/* ФОТО FACE ПО ЦЕНТРУ */
 .pink-box .pink-face {
     position: absolute;
     top: 50%;
@@ -1963,7 +1880,6 @@ body {
 
 @media (max-width: 1024px) {
     
-      /* Левая кнопка */
     .pink-button-left {
         top: 75%;
         left: 50%;
@@ -1973,7 +1889,6 @@ body {
         padding: 1vh 3vw;
     }
     
-    /* Правая кнопка */
     .pink-button-right {
         top: 75%;
         right: 50%;
@@ -1992,7 +1907,6 @@ body {
 
 @media (max-width: 475px) {
     
-    /* Левая кнопка — теперь ВЕРХНЯЯ */
     .pink-button-left {
         top: 65%;
         left: 50%;
@@ -2001,7 +1915,6 @@ body {
         height: 8vh;
     }
     
-    /* Правая кнопка — теперь НИЖНЯЯ */
     .pink-button-right {
         top: 75%;
         left: 50%;
@@ -2180,10 +2093,6 @@ body {
 }
 
 }
-
-/* ============================================
-   ПЛАШКИ — АДАПТИВ 475px ✅
-   ============================================ */
 
 @media (max-width: 475px) {
     
