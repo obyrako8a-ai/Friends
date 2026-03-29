@@ -1261,8 +1261,9 @@ body {
 
     /* ГОЛУБОЙ БОКС */
     .blue-box {
-        margin-top: -41.5vh !important;
+        margin-top: -55vh !important;
     }
+
 }
 
 @media (max-width: 1024px) {
@@ -1547,7 +1548,7 @@ body {
     display: block;
     overflow: visible;
     background-color: transparent;
-    margin-top: -30vh;
+    margin-top: -32vh;
     position: relative;
     z-index: 30;
 }
@@ -1654,12 +1655,6 @@ body {
 .fist-toggle:checked+.fist-label:hover .fist-open {
     transform: none;
 }
-
-/* ============================================
-    УДАЛЕНЫ ВСЕ СТИЛИ ДЛЯ ЯБЛОК
-   ============================================ */
-/* .apple, .apple-clean, .apple-dirty, .apple-green, 
-   .apple-yellow, .apple-purple — всё удалено! */
 
 /* РОЗОВЫЙ БОКС */
 .pink-box {
@@ -1847,20 +1842,24 @@ body {
 .logo-bg-pink {
     position: absolute;
     display: block;
-    top: 15vh;
-    left: 0vw;
+    top: 16vh;
+    left: 0.6vw;
     width: 30vw;
-    height: 23vh;
+    height: 20vh;
     z-index: 30;
+}
+
+.logo-bg-pink {
+    top: 20vh;
 }
 
 .logo-bg-dark-blue {
     position: absolute;
     display: block;
-    top: 80vh;
-    left: 0vw;
-    width: 30vw;
-    height: 23vh;
+    top: 85vh;
+    left: 0.5vw;
+    width: 17vw;
+    height: 15vh;
     z-index: 30;
 }
 
@@ -1960,4 +1959,341 @@ body {
 
 .dark-blue-box {
     z-index: 50;
+}
+
+@media (max-width: 1024px) {
+    
+      /* Левая кнопка */
+    .pink-button-left {
+        top: 75%;
+        left: 50%;
+        transform: translateX(50%) translateY(-50%);
+        min-width: 18vw;
+        height: 10vh;
+        padding: 1vh 3vw;
+    }
+    
+    /* Правая кнопка */
+    .pink-button-right {
+        top: 75%;
+        right: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        min-width: 18vw;
+        height: 10vh;
+        padding: 1vh 3vw;
+    }
+    
+    /* Текст в кнопках */
+    .pink-button-left span,
+    .pink-button-right span {
+        font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 475px) {
+    
+    /* Левая кнопка — теперь ВЕРХНЯЯ */
+    .pink-button-left {
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        min-width: 35vw;
+        height: 8vh;
+    }
+    
+    /* Правая кнопка — теперь НИЖНЯЯ */
+    .pink-button-right {
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        min-width: 35vw;
+        height: 8vh;
+    }
+    
+    /* Текст в кнопках */
+    .pink-button-left span,
+    .pink-button-right span {
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .logo-bg-green,
+    .logo-bg-blue {
+        width: 30vw;
+        height: 25vh;
+        top: 11vh;
+    }
+
+    .logo-bg-purple {
+        width: 30vw;
+        height: 15vh;
+        top: 20vh;
+        left: 1vw;
+    }
+
+    .logo-bg-pink  {
+        width: 30vw;
+        height: 15vh;
+        top: 20vh;
+        left: 0.6vw;
+    }
+    
+    
+    .logo-bg-dark-blue {
+        width: 25vw;
+        height: 10vh;
+        top: 85vh;
+        left: 0.6vw;
+    }
+
+    .dark-blue-box {
+    margin-top: -95vh;
+}
+
+/* Логотип */
+.dark-blue-logo {
+    top: 87vh;
+    left: 5vw;
+    width: 13vw;
+}
+
+/* Бегущие строки (контейнеры) */
+.marquee-container-green,
+.marquee-container-blue,
+.marquee-container-pink {
+    top: 18vh;
+}
+
+.marquee-container-purple {
+    top: 20vh;
+}
+
+.logo-bg {
+    top: 4vh;
+    left: 0vw;
+    width: 30vw;
+    height: 23vh;
+}
+
+.logo {
+    top: 6.5vh;
+    left: 3vw;
+    width: 25vw;
+    height: 15vh;
+}
+
+}
+
+@media (max-width: 768px) {
+    
+    .logo-bg-green,
+    .logo-bg-blue {
+        width: 25vw;
+        height: 15vh;
+        top: 21vh;
+    }
+
+    .logo-bg-purple {
+        width: 25vw;
+        height: 15vh;
+        top: 20vh;
+        left: 1.5vw;
+    }
+
+    .logo-bg-pink  {
+        width: 25vw;
+        height: 15vh;
+        top: 15vh;
+        left: 0.6vw;
+    }
+    
+    
+    .logo-bg-dark-blue {
+        width: 25vw;
+        height: 8vh;
+        top: 85vh;
+        left: 0.6vw;
+    }
+
+    .dark-blue-box {
+    margin-top: -85vh;
+}
+
+/* Текст над плашкой */
+.purple-text,
+.green-text,
+.blue-text,
+.pink-text {
+    font-size: 3vw;
+    left: 5vw;
+}
+
+.blue-text {
+    top: 25vh;
+}
+
+.pink-text {
+    top: 17vh;
+}
+
+.purple-text {
+    top: 20vh;
+}
+
+/* Логотип */
+.dark-blue-logo {
+    top: 87vh;
+    left: 5vw;
+    width: 13vw;
+}
+
+/* Бегущие строки (контейнеры) */
+.marquee-container-green,
+.marquee-container-blue,
+.marquee-container-pink,
+.marquee-container-purple {
+    top: 20vh;
+}
+
+.marquee-container-pink {
+    top: 15vh;
+}
+
+.marquee-container-blue {
+    top: 24vh;
+}
+
+.logo-bg {
+    top: 4vh;
+    left: 0vw;
+    width: 28vw;
+    height: 23vh;
+}
+
+.logo {
+    top: 6vh;
+    left: 3vw;
+    width: 20vw;
+    height: 10vh;
+}
+
+}
+
+/* ============================================
+   ПЛАШКИ — АДАПТИВ 475px ✅
+   ============================================ */
+
+@media (max-width: 475px) {
+    
+   .logo-bg-green {
+        width: 30vw;
+        height: 10vh;
+        top: 35vh;
+    }
+
+    .logo-bg-blue {
+        width: 30vw;
+        height: 25vh;
+        top: 35vh;
+    }
+
+    .logo-bg-purple {
+        width: 30vw;
+        height: 10vh;
+        top: 20vh;
+        left: 2.3vw;
+    }
+
+    .logo-bg-pink  {
+        width: 35vw;
+        height: 15vh;
+        top: 15vh;
+        left: 0.6vw;
+    }
+    
+    
+    .logo-bg-dark-blue {
+        width: 25vw;
+        height: 5vh;
+        top: 85vh;
+        left: 0.6vw;
+    }
+
+    .dark-blue-box {
+    margin-top: -95vh;
+}
+
+/* Логотип */
+.dark-blue-logo {
+    top: 86vh;
+}
+
+/* Бегущие строки (контейнеры) */
+.marquee-container-green,
+.marquee-container-blue,
+.marquee-container-pink,
+.marquee-container-purple {
+    top: 20vh;
+}
+
+.marquee-container-pink {
+    top: 15vh;
+}
+
+.marquee-container-green {
+    top: 35vh;
+}
+
+.marquee-container-blue {
+    top: 35vh;
+}
+
+.marquee-container-dark-blue {
+    top: 85vh;
+}
+
+.dark-blue-box {
+    margin-top: -85vh;
+}
+
+.purple-text,
+.green-text,
+.blue-text,
+.pink-text {
+    font-size: 4vw;
+    left: 5vw;
+}
+
+.blue-text {
+    top: 35vh;
+}
+
+.green-text {
+    top: 35vh;
+}
+
+.pink-text {
+    top: 15vh;
+}
+
+.purple-text {
+    top: 20vh;
+}
+
+.logo-bg {
+    top: 4vh;
+    left: 0vw;
+    width: 28vw;
+    height: 23vh;
+}
+
+.logo {
+    top: 4vh;
+    left: 3vw;
+    width: 23vw;
+    height: 8vh;
+}
+
 }

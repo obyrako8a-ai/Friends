@@ -57,15 +57,28 @@ function moveEye(eye, cursorX, cursorY, side) {
 }
 
 // ============================================
-// АКСЕССУАРЫ - СМЕНА ПО ПОРЯДКУ ЧЕРЕЗ JS ✅
+// АКСЕССУАРЫ - ЧЕРЕЗ JAVASCRIPT
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ DOM загружен');
     
     const accessoryBtn = document.getElementById('accessoryBtn');
     const accessoriesContainer = document.getElementById('accessories-container');
     
-    // Список аксессуаров (создаются только при клике)
+    console.log('🔘 Кнопка:', accessoryBtn);
+    console.log('📦 Контейнер:', accessoriesContainer);
+    
+    if (!accessoryBtn) {
+        console.error('❌ Кнопка #accessoryBtn не найдена!');
+        return;
+    }
+    
+    if (!accessoriesContainer) {
+        console.error('❌ Контейнер #accessories-container не найден!');
+        return;
+    }
+    
     const accessoryList = [
         { class: 'accessory-hat', src: 'images/blue_hat.svg', alt: 'Hat' },
         { class: 'accessory-glasses', src: 'images/blue_glasses.svg', alt: 'Glasses' },
@@ -76,46 +89,37 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let currentElement = null;
     
-    // Функция показа следующего аксессуара
     function showNextAccessory() {
-        // ✅ Удаляем предыдущий аксессуар (если есть)
+        console.log('🖱️ КЛИК НА КНОПКУ!');
+        
         if (currentElement) {
             currentElement.remove();
             currentElement = null;
+            console.log('🗑️ Предыдущий аксессуар удалён');
         }
         
-        // ✅ Берём следующий аксессуар по порядку
         const accessory = accessoryList[currentIndex];
-        
-        // ✅ Создаём новый элемент
         const img = document.createElement('img');
         img.src = accessory.src;
         img.alt = accessory.alt;
         img.className = `accessory ${accessory.class} active`;
         
-        // ✅ Добавляем в контейнер
         accessoriesContainer.appendChild(img);
-        
-        // ✅ Сохраняем ссылку
         currentElement = img;
-        
-        // ✅ Переходим к следующему (по кругу)
         currentIndex = (currentIndex + 1) % accessoryList.length;
         
-        console.log('Показан аксессуар:', currentIndex, 'из', accessoryList.length);
+        console.log('✅ Показан:', accessory.class);
+        console.log('📊 Следующий индекс:', currentIndex);
     }
     
-    // ✅ Обработчик клика
-    if (accessoryBtn) {
-        accessoryBtn.addEventListener('click', showNextAccessory);
-        console.log('✅ Кнопка найдена, обработчик подключён');
-    } else {
-        console.warn('❌ Кнопка #accessoryBtn не найдена!');
-    }
+    // ✅ Добавляем обработчик
+    accessoryBtn.addEventListener('click', showNextAccessory);
+    console.log('✅ Обработчик клика подключён');
     
-    // ✅ Проверка при загрузке
-    console.log('Аксессуаров в списке:', accessoryList.length);
-    console.log('Контейнер найден:', accessoriesContainer !== null);
+    // ✅ Тест: проверка что кнопка кликабельна
+    accessoryBtn.addEventListener('mousedown', () => {
+        console.log('🖱️ mousedown сработал!');
+    });
 });
 
 // ============================================
