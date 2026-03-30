@@ -55,65 +55,127 @@ function moveEye(eye, cursorX, cursorY, side) {
 
 // Аксессуары
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM загружен');
-    
-    const accessoryBtn = document.getElementById('accessoryBtn');
-    const accessoriesContainer = document.getElementById('accessories-container');
-    
-    console.log('Кнопка:', accessoryBtn);
-    console.log('Контейнер:', accessoriesContainer);
-    
-    if (!accessoryBtn) {
-        console.error('Кнопка #accessoryBtn не найдена');
-        return;
-    }
-    
-    if (!accessoriesContainer) {
-        console.error('Контейнер #accessories-container не найден');
-        return;
-    }
-    
-    const accessoryList = [
+const accessoryBtnL = document.getElementById('accessoryBtnL');
+const accessoryBtnR = document.getElementById('accessoryBtnR');
+const accessoriesContainer = document.getElementById('accessory-container');
+
+// Список аксессуаров
+const accessoryList = [
+    [
         { class: 'accessory-hat', src: 'images/blue_hat.svg', alt: 'Hat' },
+        { class: 'accessory-hat', src: 'images/green_hat.svg', alt: 'Hat' },
+        { class: 'accessory-hat', src: 'images/red_hat.svg', alt: 'Hat' },
+        { class: 'accessory-hat', src: 'images/yellow_hat.svg', alt: 'Hat' }
+    ],
+    [
         { class: 'accessory-glasses', src: 'images/blue_glasses.svg', alt: 'Glasses' },
+        { class: 'accessory-glasses', src: 'images/green_glasses.svg', alt: 'Glasses' },
+        { class: 'accessory-glasses', src: 'images/red_glasses.svg', alt: 'Glasses' },
+        { class: 'accessory-glasses', src: 'images/yellow_glasses.svg', alt: 'Glasses' }
+    ],
+    [
         { class: 'accessory-headphones', src: 'images/blue_headphones.svg', alt: 'Headphones' },
-        { class: 'accessory-tie', src: 'images/blue_tie.svg', alt: 'Tie' }
-    ];
-    
-    let currentIndex = 0;
-    let currentElement = null;
-    
-    function showNextAccessory() {
-        console.log('Клик на кнопку');
-        
-        if (currentElement) {
-            currentElement.remove();
-            currentElement = null;
-            console.log('Предыдущий аксессуар удалён');
-        }
-        
-        const accessory = accessoryList[currentIndex];
-        const img = document.createElement('img');
-        img.src = accessory.src;
-        img.alt = accessory.alt;
-        img.className = `accessory ${accessory.class} active`;
-        
-        accessoriesContainer.appendChild(img);
-        currentElement = img;
-        currentIndex = (currentIndex + 1) % accessoryList.length;
-        
-        console.log('Показан:', accessory.class);
-        console.log('Следующий индекс:', currentIndex);
+        { class: 'accessory-headphones', src: 'images/green_headphones.svg', alt: 'Headphones' },
+        { class: 'accessory-headphones', src: 'images/red_headphones.svg', alt: 'Headphones' },
+        { class: 'accessory-headphones', src: 'images/yellow_headphones.svg', alt: 'Headphones' }
+    ],
+    [
+        { class: 'accessory-tie', src: 'images/blue_tie.svg', alt: 'Tie' },
+        { class: 'accessory-tie', src: 'images/green_tie.svg', alt: 'Tie' },
+        { class: 'accessory-tie', src: 'images/red_tie.svg', alt: 'Tie' },
+        { class: 'accessory-tie', src: 'images/yellow_tie.svg', alt: 'Tie' }
+    ]
+];
+
+// Текущий аксессуар
+let currentAccessory = null;
+
+// Функция создания аксессуара
+function createAccessory(accessory) {
+    const img = document.createElement('img');
+    img.src = accessory.src;
+    img.alt = accessory.alt;
+    img.className = `accessory ${accessory.class}`;
+    // Inline style переопределит CSS display: none
+    img.style.display = 'block';
+    return img;
+}
+
+// Функция показа случайного аксессуара
+function showRandomAccessory() {
+    // Удаляем текущий аксессуар
+    if (currentAccessory && currentAccessory.element) {
+        currentAccessory.element.remove();
     }
     
-    accessoryBtn.addEventListener('click', showNextAccessory);
-    console.log('Обработчик клика подключён');
+    // Выбирает случайный аксессуар
+    let newAccessory;
+    do {
+        const randomIndex = Math.floor(Math.random() * 4);
+        newAccessory = accessoryList[randomIndex][0];
+    } while (currentAccessory && newAccessory.class === currentAccessory.class);
     
-    accessoryBtn.addEventListener('mousedown', () => {
-        console.log('mousedown сработал');
+    // Создаёт и добавляет новый аксессуар
+    const newElement = createAccessory(newAccessory);
+    console.log(newElement);
+    console.log(accessoriesContainer);
+    accessoriesContainer.appendChild(newElement);
+    
+    // Сохраняет ссылку на текущий
+    currentAccessory = {
+        class: newAccessory.class,
+        element: newElement
+    };
+}
+
+// Функция изменения цвета аксессуара
+function changeColorAccessory() {
+    let accessory_index = 0;
+    for(let i=0; i<4; i+=1){
+        if(accessoryList[i][0].alt === currentAccessory.element.alt){
+            accessory_index = i
+            break;
+        };
+    }
+
+    // Выбирает случайный аксессуар другого цвета
+    let newAccessory;
+    do {
+        const randomIndex = Math.floor(Math.random() * 4);
+        newAccessory = accessoryList[accessory_index][randomIndex];
+    } while (newAccessory.src === currentAccessory.src);
+    
+    // удаляет текущий аксессуар
+    currentAccessory.element.remove();
+
+    // Создает и добавляет новый аксессуар
+    const newElement = createAccessory(newAccessory);
+    accessoriesContainer.appendChild(newElement);
+    
+    // Сохраняяет ссылку на текущий
+    currentAccessory = {
+        class: newAccessory.class,
+        element: newElement
+    };
+    
+}
+
+// Обработчик клика
+if (accessoryBtnL) {
+    accessoryBtnL.addEventListener('click', () => {
+        showRandomAccessory();
     });
-});
+} else {
+    console.warn('Кнопка #accessoryBtnL не найдена!');
+}
+
+if (accessoryBtnR) {
+    accessoryBtnR.addEventListener('click', () => {
+        changeColorAccessory();
+    });
+} else {
+    console.warn('Кнопка #accessoryBtnR не найдена!');
+}
 
 
 // Купюра убегает
@@ -127,9 +189,9 @@ if (moneyImg) {
     // Максимальное смещение от центра
     const maxOffset = 400;
     
-    // Отслеживаем движение мыши
+    // Слежка движение мыши
     document.addEventListener('mousemove', (e) => {
-        // Получаем координаты мыши
+        // координаты мыши
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         
